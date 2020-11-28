@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "33194352702",
+    "firebase_url": "https://sistemaalunos.firebaseio.com",
+    "project_id": "sistemaalunos",
+    "storage_bucket": "sistemaalunos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33194352702:android:2fc89cec7c68c35777b16f",
+        "android_client_info": {
+          "package_name": "com.sistemaalunos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33194352702-6icln0qitlt9rti5lmjfo64fjees2l1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJy5_HflNwxwu2F_VThWPKXKRdShHtGBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33194352702-6icln0qitlt9rti5lmjfo64fjees2l1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
