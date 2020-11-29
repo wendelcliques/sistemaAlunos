@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -11,10 +11,11 @@ import Secretario from '../pages/Secretario/index';
 
 const Stack = createStackNavigator();
 
-const StackScreens = () => {
+const StackScreens = ({logged}) => {
     return (
-        <Stack.Navigator initialRouteName="Login">
-            
+         //terminar lógica de identificação do usuario
+         
+        <Stack.Navigator initialRouteName={logged? 'Login' : 'Login'}>   
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="Administrador" component={Administrador} />
@@ -27,10 +28,23 @@ const StackScreens = () => {
     };
 
     const Routes = () => {
+        const [logged, setLogged] = useState(false);
+
+        useEffect(() => {
+            async function initialVerifications() {
+            /*if(await isLogged()) {
+                setLogged(true);
+            }*/
+        }
+
+        initialVerifications();
+        })
+
+
         return (
             <NavigationContainer>
                 
-                <StackScreens />
+                <StackScreens logged={logged}/>
             </NavigationContainer>
         );
         };
