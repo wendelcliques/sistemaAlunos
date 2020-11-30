@@ -2,12 +2,35 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
+import {signIn as register} from '../../services/Auth';
+
 const SignIn = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
+    const onSubmit = async () => {
+        if (loading === false) {
+            setLoading(true);
+            const {registerSuccess} = await register({
+                email,
+                password,
+                name,
+            })
+
+            if (registerSuccess === true) {
+                navigation.reset({
+                    index: 0,
+                    key: null,
+                    routes: [{name: 'Administrador'}]
+                })
+            } else {
+                setLoading(false);
+
+            }
+        }
+    }
 
     return (
        <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -49,7 +72,7 @@ const SignIn = ({navigation}) => {
            }}
            />
 
-           <TouchableOpacity onPress={() => {}} style={styles.button}>
+           <TouchableOpacity onPress={onSubmit} style={styles.button}>
                <Text style={styles.buttonText}>
                 {loading ? 'Carregando...' : 'Criar conta'}
                </Text>

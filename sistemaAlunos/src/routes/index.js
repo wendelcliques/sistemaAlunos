@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+import { isLogged } from '../services/Auth'
+
 import Login from '../pages/Login/index';
 import SignIn from '../pages/SignIn/index';
 import Administrador from '../pages/Administrador/index';
@@ -15,7 +17,9 @@ const StackScreens = ({logged}) => {
     return (
          //terminar lógica de identificação do usuario
          
-        <Stack.Navigator initialRouteName={logged? 'Login' : 'Login'}>   
+        <Stack.Navigator 
+        screenOptions={{headerShown: false}}
+        initialRouteName={logged? 'Login' : 'Login'}>   
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="Administrador" component={Administrador} />
@@ -32,9 +36,9 @@ const StackScreens = ({logged}) => {
 
         useEffect(() => {
             async function initialVerifications() {
-            /*if(await isLogged()) {
+            if(await isLogged()) {
                 setLogged(true);
-            }*/
+            }
         }
 
         initialVerifications();
