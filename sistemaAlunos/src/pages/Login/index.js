@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
-const Login = () => {
+const Login = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
 
     return (
@@ -34,6 +35,23 @@ const Login = () => {
                setPassword(text)
            }}
            />
+
+           <TouchableOpacity onPress={() => {}} style={styles.button}>
+               <Text style={styles.buttonText}>
+                {loading ? 'Carregando...' : 'Entrar'}
+               </Text>
+           </TouchableOpacity>
+
+           <TouchableOpacity 
+           onPress={() => {
+               navigation.navigate('SignIn');
+           }} 
+           style={styles.buttonSignIn}
+           >
+               <Text style={styles.buttonSignInText}>
+                Criar uma conta
+               </Text>
+           </TouchableOpacity>
        </KeyboardAvoidingView>
     )
 }
@@ -55,6 +73,30 @@ const styles = StyleSheet.create({
         color: Colors.white,
         height: 44,
         marginTop: 20,
+    },
+    button: {
+        height: 44,
+        width: '80%',
+        backgroundColor: Colors.red,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 2,
+        marginTop: 20,
+
+    },
+    buttonText: {
+        color: Colors.white,
+        fontWeight: 'bold',
+        fontSize: 16,
+
+    },
+    buttonSignIn: {
+        marginTop: 10,
+
+    },
+    buttonSignInText: {
+        color: Colors.blueDark, 
+        textDecorationLine: 'underline',
     }
 });
 export default Login
