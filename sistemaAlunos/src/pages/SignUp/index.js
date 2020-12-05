@@ -2,23 +2,24 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
-import {getUserAuth as register} from '../../services/Auth';
+import {signIn as register} from '../../services/Auth';
 
-const Login = ({navigation}) => {
+const SignUp = ({navigation}) => {
     const [email, setEmail] = useState('')
+    const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
     const onSubmit = async () => {
         if (loading === false) {
             setLoading(true);
-            const {userAuth} = await register({
+            const {registerSuccess} = await register({
                 email,
                 password,
-                //name,
+                name,
             })
 
-            if (userAuth === true) {
+            if (registerSuccess === true) {
                 navigation.reset({
                     index: 0,
                     key: null,
@@ -30,7 +31,6 @@ const Login = ({navigation}) => {
             }
         }
     }
-
 
     return (
        <KeyboardAvoidingView 
@@ -51,6 +51,18 @@ const Login = ({navigation}) => {
 
             <TextInput
            style={styles.input}
+           placeholder="Seu nome"
+           placeholderTextColor={Colors.carbon}
+           autoCapitalize="none"
+           autoCorrect={false}
+           value={name}
+           onChangeText={text => {
+               setName(text)
+           }}
+           />
+
+            <TextInput
+           style={styles.input}
            placeholder="Sua senha"
            placeholderTextColor={Colors.carbon}
            secureTextEntry
@@ -62,20 +74,20 @@ const Login = ({navigation}) => {
            }}
            />
 
-<TouchableOpacity onPress={onSubmit} style={styles.button}>
+           <TouchableOpacity onPress={onSubmit} style={styles.button}>
                <Text style={styles.buttonText}>
-                {loading ? 'Carregando...' : 'Entrar'}
+                {loading ? 'Carregando...' : 'Criar conta'}
                </Text>
            </TouchableOpacity>
 
            <TouchableOpacity 
            onPress={() => {
-               navigation.navigate('SignIn');
+               navigation.navigate('Login');
            }} 
            style={styles.buttonSignIn}
            >
                <Text style={styles.buttonSignInText}>
-                Criar uma conta
+                Fazer login
                </Text>
            </TouchableOpacity>
        </KeyboardAvoidingView>
@@ -125,4 +137,5 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
     }
 });
-export default Login
+export default SignUp
+

@@ -4,8 +4,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import { isLogged } from '../services/Auth'
 
-import Login from '../pages/Login/index';
-import SignIn from '../pages/SignIn/index';
+import SignIn from '../pages/SignUp/index';
+import SignUp from '../pages/SignUp/index';
 import Administrador from '../pages/Administrador/index';
 import Ate from '../pages/Ate/index';
 import Coordenador from '../pages/Coordenador/index';
@@ -19,9 +19,9 @@ const StackScreens = ({logged}) => {
          
         <Stack.Navigator 
         screenOptions={{headerShown: false}}
-        initialRouteName={logged? 'Login' : 'Login'}>   
-            <Stack.Screen name="Login" component={Login} />
+        initialRouteName={logged? 'Administrador' : 'SignIn'}>   
             <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="Administrador" component={Administrador} />
             <Stack.Screen name="ATE" component={Ate} />
             <Stack.Screen name="Coordenador" component={Coordenador} />
