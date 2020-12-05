@@ -23,7 +23,7 @@ export const cleanUserAuth = async () => {
     await AsyncStorage.removeItem('userAuth');
 };
 
-export const signIn = async (data) => {
+export const signUp = async (data) => {
     const {email, password, name} = data
 
     try {
@@ -43,5 +43,23 @@ export const signIn = async (data) => {
     } catch (e) {
         Alert.alert('Erro ao criar um Usuário', e.message);
         return {registerSuccess: false}
+    }
+}
+
+export const signIn = async (data) => {
+    const {email, password} = data;
+
+    try {
+        const userInfos = await auth().signInWithEmailAndPassword(
+            email,
+            password,
+        );
+        setUserAuth(userInfos.user.uid);
+
+        return {logginSuccess: true};
+
+    } catch (e) {
+        Alert.alert('Erro ao tentar entrar', e.message);
+        return {logginSuccess: false}
     }
 }

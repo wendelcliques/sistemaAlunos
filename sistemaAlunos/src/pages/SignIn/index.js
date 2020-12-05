@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
-import {getUserAuth as register} from '../../services/Auth';
+import {singIn as login} from '../../services/Auth';
+
+
+
 
 const SignIn = ({navigation}) => {
     const [email, setEmail] = useState('')
@@ -12,13 +15,12 @@ const SignIn = ({navigation}) => {
     const onSubmit = async () => {
         if (loading === false) {
             setLoading(true);
-            const {userAuth} = await register({
+            const {loginSuccess} = await login({
                 email,
                 password,
-                //name,
-            })
+            });
 
-            if (userAuth === true) {
+            if (loginSuccess === true) {
                 navigation.reset({
                     index: 0,
                     key: null,
@@ -70,7 +72,7 @@ const SignIn = ({navigation}) => {
 
            <TouchableOpacity 
            onPress={() => {
-               navigation.navigate('SignIn');
+               navigation.navigate('SignUp');
            }} 
            style={styles.buttonSignIn}
            >

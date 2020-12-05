@@ -4,7 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import { isLogged } from '../services/Auth'
 
-import SignIn from '../pages/SignUp/index';
+import SignIn from '../pages/SignIn/index';
 import SignUp from '../pages/SignUp/index';
 import Administrador from '../pages/Administrador/index';
 import Ate from '../pages/Ate/index';

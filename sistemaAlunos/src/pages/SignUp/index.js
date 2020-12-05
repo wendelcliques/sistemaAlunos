@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
-import {signIn as register} from '../../services/Auth';
+import {signUp as register} from '../../services/Auth';
 
 const SignUp = ({navigation}) => {
     const [email, setEmail] = useState('')
@@ -82,7 +82,7 @@ const SignUp = ({navigation}) => {
 
            <TouchableOpacity 
            onPress={() => {
-               navigation.navigate('Login');
+               navigation.navigate('SignIn');
            }} 
            style={styles.buttonSignIn}
            >
