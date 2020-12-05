@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
-import {singIn as login} from '../../services/Auth';
+import {signIn as login} from '../../services/Auth';
 
 
 

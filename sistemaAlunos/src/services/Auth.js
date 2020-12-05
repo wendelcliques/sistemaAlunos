@@ -56,7 +56,7 @@ export const signIn = async (data) => {
         );
         setUserAuth(userInfos.user.uid);
 
-        return {logginSuccess: true};
+        return {loginSuccess: true};
 
     } catch (e) {
         Alert.alert('Erro ao tentar entrar', e.message);
