@@ -33,7 +33,9 @@ const SignIn = ({navigation}) => {
     }
 
     return (
-       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+       <KeyboardAvoidingView 
+      // behavior="padding" 
+       style={styles.container}>
            <TextInput
            style={styles.input}
            placeholder="Seu e-mail"

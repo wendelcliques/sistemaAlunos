@@ -2,14 +2,40 @@ import React, {useState, useEffect} from 'react'
 import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import Colors from '../../styles/Colors'
 
+import {getUserAuth as register} from '../../services/Auth';
+
 const Login = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
+    const onSubmit = async () => {
+        if (loading === false) {
+            setLoading(true);
+            const {userAuth} = await register({
+                email,
+                password,
+                //name,
+            })
+
+            if (userAuth === true) {
+                navigation.reset({
+                    index: 0,
+                    key: null,
+                    routes: [{name: 'Administrador'}]
+                })
+            } else {
+                setLoading(false);
+
+            }
+        }
+    }
+
 
     return (
-       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+       <KeyboardAvoidingView 
+      // behavior="padding" 
+       style={styles.container}>
            <TextInput
            style={styles.input}
            placeholder="Seu e-mail"
@@ -36,7 +62,7 @@ const Login = ({navigation}) => {
            }}
            />
 
-           <TouchableOpacity onPress={() => {}} style={styles.button}>
+<TouchableOpacity onPress={onSubmit} style={styles.button}>
                <Text style={styles.buttonText}>
                 {loading ? 'Carregando...' : 'Entrar'}
                </Text>
