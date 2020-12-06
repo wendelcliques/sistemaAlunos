@@ -59,14 +59,19 @@ export const signIn = async (data) => {
         return {loginSuccess: true};
 
     } catch (e) {
-      
-        Alert.alert('Erro ao tentar entrar', 
-        'O e-mail ou a senha estão incorretos',
-        'Por favor tente novamente');
-        //console.log('signIn :: e: ', JSON.stringify(e.message));
+       
+     Alert.alert(
+        'Erro ao tentar entrar', 
+                    'O e-mail ou a senha estão incorretos.       Por favor tente novamente',);   
+        console.log('signIn :: e: ', JSON.stringify(e.message));
         return {logginSuccess: false}
+       
     }
 }
+
+ /*Alert.alert('Erro ao tentar entrar', 
+        'O e-mail ou a senha estão incorretos',
+        'Por favor tente novamente')*/
 
 export const resetPassword = async (data) => {
 

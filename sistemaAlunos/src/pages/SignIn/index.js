@@ -18,7 +18,7 @@ const SignIn = ({navigation}) => {
     
     
     const onSubmit = () => {
-        if (email === '' || password === '') {
+        if (email == '' || password == '') {
             Alert.alert('Por favor preencha o e-mail e a senha');
         } else {
             onSubmitC();
@@ -44,14 +44,18 @@ const SignIn = ({navigation}) => {
                 })
             } else {
                 setLoading(false);
-
                
+              
                 
             }
+
+         
         }
     }
 
-    const onPassword = async () => {
+
+
+    const onPassword = () => {
         if (email === '') {
             Alert.alert('Por favor preencha o e-mail');
         } else {
