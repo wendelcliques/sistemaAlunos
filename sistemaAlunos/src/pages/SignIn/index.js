@@ -18,6 +18,17 @@ const SignIn = ({navigation}) => {
     
     
     const onSubmit = async () => {
+        if (email === '' || password === '') {
+            Alert.alert('Por favor preencha o e-mail e a senha');
+        } else {
+            onSubmitC();
+
+        };
+    };
+    
+
+        const onSubmitC = async () => {
+        
         if (loading === false) {
             setLoading(true);
             const {loginSuccess} = await login({
@@ -33,6 +44,10 @@ const SignIn = ({navigation}) => {
                 })
             } else {
                 setLoading(false);
+
+                Alert.alert('Erro ao tentar entrar', 
+                'O e-mail ou a senha estão incorretos',
+                'Por favor tente novamente')
 
             }
         }

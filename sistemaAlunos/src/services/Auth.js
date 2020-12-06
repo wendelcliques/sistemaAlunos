@@ -59,7 +59,9 @@ export const signIn = async (data) => {
         return {loginSuccess: true};
 
     } catch (e) {
-        Alert.alert('Erro ao tentar entrar', e.message);
+        Alert.alert('Erro ao tentar entrar', 
+        'O e-mail ou a senha estão incorretos',
+        'Por favor tente novamente')
         return {logginSuccess: false}
     }
 }
