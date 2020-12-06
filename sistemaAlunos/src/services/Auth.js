@@ -63,3 +63,21 @@ export const signIn = async (data) => {
         return {logginSuccess: false}
     }
 }
+
+export const resetPassword = async (data) => {
+    const {email} = data;
+
+    try {
+        const userInfos = await auth().sendPasswordResetEmail(
+            email,
+           
+        );
+        setUserAuth(userInfos.user.uid);
+
+        return {resetSuccess: true};
+
+    } catch (e) {
+        Alert.alert('Erro ao tentar entrar', e.message);
+        return {resetSuccess: false}
+    }
+}

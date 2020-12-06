@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { KeyboardAvoidingView, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native'
 import Colors from '../../styles/Colors'
 
 import {signIn as login} from '../../services/Auth';
+
+import {resetPassword as reset} from '../../services/Auth';
 
 
 
@@ -11,6 +13,7 @@ const SignIn = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const [loadingP, setLoadingP] = useState(false)
 
     const onSubmit = async () => {
         if (loading === false) {
@@ -28,6 +31,28 @@ const SignIn = ({navigation}) => {
                 })
             } else {
                 setLoading(false);
+
+            }
+        }
+    }
+
+    const onPassword = async () => {
+        if (loadingP === false) {
+            setLoading(true);
+            const {resetSuccess} = await reset({
+                email,
+              
+            });
+
+            if (resetSuccess === true) {
+                Alert.alert('Solicitação enviada com sucesso')
+                navigation.reset({
+                    index: 0,
+                    key: null,
+                    routes: [{name: 'SignIn'}]
+                })
+            } else {
+                setLoadingP(false);
 
             }
         }
@@ -67,6 +92,16 @@ const SignIn = ({navigation}) => {
 <TouchableOpacity onPress={onSubmit} style={styles.button}>
                <Text style={styles.buttonText}>
                 {loading ? 'Carregando...' : 'Entrar'}
+               </Text>
+           </TouchableOpacity>
+
+           <TouchableOpacity 
+           onPress={onPassword}
+           
+           style={styles.buttonPasswordIn}
+           >
+               <Text style={styles.buttonPasswordInText}>
+                Esqueceu a senha?
                </Text>
            </TouchableOpacity>
 
@@ -125,6 +160,14 @@ const styles = StyleSheet.create({
     buttonSignInText: {
         color: Colors.blueDark, 
         textDecorationLine: 'underline',
+    },
+    buttonPasswordIn: {
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonPasswordInText: {
+        color: Colors.blueDark, 
     }
 });
 export default SignIn
