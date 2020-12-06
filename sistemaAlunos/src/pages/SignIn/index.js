@@ -17,7 +17,7 @@ const SignIn = ({navigation}) => {
 
     
     
-    const onSubmit = async () => {
+    const onSubmit = () => {
         if (email === '' || password === '') {
             Alert.alert('Por favor preencha o e-mail e a senha');
         } else {
@@ -45,10 +45,8 @@ const SignIn = ({navigation}) => {
             } else {
                 setLoading(false);
 
-                Alert.alert('Erro ao tentar entrar', 
-                'O e-mail ou a senha estão incorretos',
-                'Por favor tente novamente')
-
+               
+                
             }
         }
     }
