@@ -15,6 +15,8 @@ const SignIn = ({navigation}) => {
     const [loading, setLoading] = useState(false)
     const [loadingP, setLoadingP] = useState(false)
 
+    
+    
     const onSubmit = async () => {
         if (loading === false) {
             setLoading(true);
