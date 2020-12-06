@@ -65,19 +65,22 @@ export const signIn = async (data) => {
 }
 
 export const resetPassword = async (data) => {
+
+  
     const {email} = data;
 
+    
     try {
         const userInfos = await auth().sendPasswordResetEmail(
             email,
            
         );
-        setUserAuth(userInfos.user.uid);
+        //setUserAuth(userInfos.user.uid);
 
         return {resetSuccess: true};
 
     } catch (e) {
-        Alert.alert('Erro ao tentar entrar', e.message);
+        Alert.alert('Erro ao tentar mudar a senha', e.message);
         return {resetSuccess: false}
     }
 }

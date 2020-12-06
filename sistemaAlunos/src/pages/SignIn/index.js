@@ -37,15 +37,27 @@ const SignIn = ({navigation}) => {
     }
 
     const onPassword = async () => {
+        if (email === '') {
+            Alert.alert('Por favor preencha o e-mail');
+        } else {
+            onPasswordC();
+
+        };
+    }
+
+        const onPasswordC = async () => {
+    
         if (loadingP === false) {
-            setLoading(true);
+            setLoadingP(true);
             const {resetSuccess} = await reset({
                 email,
               
             });
 
             if (resetSuccess === true) {
-                Alert.alert('Solicitação enviada com sucesso')
+                Alert.alert('Solicitação enviada com sucesso',
+                'Por favor verifique o seu e-mail',
+                )
                 navigation.reset({
                     index: 0,
                     key: null,
@@ -53,6 +65,7 @@ const SignIn = ({navigation}) => {
                 })
             } else {
                 setLoadingP(false);
+
 
             }
         }
@@ -101,7 +114,8 @@ const SignIn = ({navigation}) => {
            style={styles.buttonPasswordIn}
            >
                <Text style={styles.buttonPasswordInText}>
-                Esqueceu a senha?
+               {loadingP ? 'Enviando a solicitação...' : 'Esqueceu a senha?'}
+                
                </Text>
            </TouchableOpacity>
 
