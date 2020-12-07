@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { View, ScrollView, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text, Alert } from 'react-native';
+import { StatusBar, View, ScrollView, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text, Alert } from 'react-native';
 
 import ActionFooter, {
     ActionSecondaryButton,
 
 } from '../../componentes/Core/ActionFooter';
+
+import AdministradorCampoAluno from './AdministradorCampoAluno';
 
 import {cleanUserAuth} from '../../services/Auth';
 
@@ -14,6 +16,12 @@ import Colors from '../../styles/Colors';
 
 
 const Administrador = ({navigation}) => {
+
+    const student = {
+        id: null,
+        aluno: null,
+        responsavel: null,
+    }
 
     const [aluno, setAluno] = useState('')
     const [responsavel, setResponsavel] = useState('')
@@ -28,23 +36,87 @@ const Administrador = ({navigation}) => {
         });
     }
 
+    /*const onSearch = () => {
+        const data ={
+            id: student.id,
+            student: aluno,
+            responsible: responsavel,
+        }
+        console.log('Administrador :: onSearch', data);
+        //searchStudent();
+
+    }*/
+
     return (
-        <View style={Styles.container}>
-<View
+              <View style={styles.container}>
+               <StatusBar barStyle="light-content" backgroundColor={Colors.background} />
+
+              <View style={styles.formContainer}>
+               <AdministradorCampoAluno 
+                 value={aluno}
+                 onChangeValue={setAluno}
+                 />
+
+
+                </View>
+
+                <ActionFooter>
+                <ActionSecondaryButton 
+                    title="Logout"
+                    onPress={onLogoutPress}
+                />
+                 </ActionFooter>
+
+                </View>
+             );
+
+    };
+
+
+
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: Colors.background,
+    },
+    formContainer: {
+       flex: 1,
+       paddingVertical: 20,
+    },
+    formActionContainer: {
+       flexDirection: 'row',
+       justifyContent: 'center',
+       marginVertical: 10,
+    },
+});
+
+export default Administrador
+
+
+/*<TouchableOpacity 
+           //onPress={onPassword}
+           
+           style={styles.buttonPasswordIn}
+           >
+               <Text style={styles.buttonPasswordInText}>
+
+               {loadingP ? 'Enviando a solicitação...' : 'Esqueceu a senha?'}
+                
+               </Text>
+           </TouchableOpacity>
+
+
+
+
+
+
+
+           <View
  // behavior="padding" 
        style={styles.container}>
-           <TextInput
-           style={styles.input}
-           placeholder="Nome do aluno"
-           placeholderTextColor={Colors.carbon}
-          // keyboardType="email-address"
-           autoCapitalize="none"
-           autoCorrect={false}
-           value={aluno}
-           onChangeText={text => {
-               setAluno(text)
-           }}
-           />
+           
 
             <TextInput
            style={styles.input}
@@ -86,37 +158,10 @@ style={styles.button}>
        
        <View>
 
-            <ActionFooter>
-                <ActionSecondaryButton 
-                    title="Logout"
-                    onPress={onLogoutPress}
-                />
-            </ActionFooter>
+           
         </View>
 
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    },
-});
-
-export default Administrador
-
-
-/*<TouchableOpacity 
-           //onPress={onPassword}
-           
-           style={styles.buttonPasswordIn}
-           >
-               <Text style={styles.buttonPasswordInText}>
-
-               {loadingP ? 'Enviando a solicitação...' : 'Esqueceu a senha?'}
-                
-               </Text>
-           </TouchableOpacity>
            */
