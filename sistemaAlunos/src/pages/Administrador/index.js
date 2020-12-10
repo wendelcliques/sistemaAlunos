@@ -20,11 +20,25 @@ const Administrador = ({navigation}) => {
     const student = {
         id: null,
         aluno: null,
-        responsavel: null,
+        responsavel: {
+            responsible1: {
+                name: null,
+            },
+            responsible2: {
+                name: null,
+            },
+            responsible3: {
+                name: null,
+            },
+            responsible4: {
+                name: null,
+            },
+
+        },
     }
 
     const [aluno, setAluno] = useState('')
-    const [responsavel, setResponsavel] = useState('')
+    const [responsavel, setResponsavel] = useState([])
     const [loading, setLoading] = useState(false)
 
     const onLogoutPress = async () => {
