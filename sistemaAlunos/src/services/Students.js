@@ -27,19 +27,31 @@ export const addStudent = async student => {
     console.log('addStudent :: value: ', JSON.stringify(student));
 
     try {
-        data = {
-            entryAt: student.entryAt || new Date(),
-    name: student.name,
-    address: student.address,
-    class: student.class,
-    phone1: student.phone1,
-    phone2: student.phone2,
-    phone3: student.phone3,
-    phone4: student.phone4,
-    photo: student.photo,
-    user: 'string?',
-    responsible: 'Responsible[]?',
-        };
+             data = {
+                    entryAt: student.entryAt || new Date(),
+                    name: student.name,
+                    address: student.address,
+                    class: student.class,
+                    phone1: student.phone1,
+                    phone2: student.phone2,
+                     phone3: student.phone3,
+                    phone4: student.phone4,
+                    photo: student.photo,
+                    //user: 'string?',
+                    responsible: student.responsible1.name,
+                    };
+
+                await firestore()
+                .collection('students')
+                .add(data);
+                } catch (error) {
+                    console.error('addStudent :: erro ao salvar conteúdo: ',
+                    JSON.stringify(data),
+                    JSON.stringify(error),
+                    );
+                    Alert.alert('Houve um erro ao salvar esse lançamento');
+                }
+
+                return data;
         
-    }
-}
+};

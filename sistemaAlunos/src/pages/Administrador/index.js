@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, isValidElement} from 'react'
 import { StatusBar, View, ScrollView, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Text, Alert } from 'react-native';
 
 import ActionFooter, {
+    ActionPrimaryButton,
     ActionSecondaryButton,
 
 } from '../../componentes/Core/ActionFooter';
 
 import AdministradorCampoAluno from './AdministradorCampoAluno';
+import AdministradorCampoResponsavel from './AdministradorCampoResponsavel';
 
 import {cleanUserAuth} from '../../services/Auth';
 
@@ -38,7 +40,7 @@ const Administrador = ({navigation}) => {
     }
 
     const [aluno, setAluno] = useState('')
-    const [responsavel, setResponsavel] = useState([])
+    const [responsavel, setResponsavel] = useState('')
     const [loading, setLoading] = useState(false)
 
     const onLogoutPress = async () => {
@@ -71,10 +73,22 @@ const Administrador = ({navigation}) => {
                  onChangeValue={setAluno}
                  />
 
+                <AdministradorCampoResponsavel
+                 value={responsavel}
+                 onChangeValue={setAluno}
+                 />
+
 
                 </View>
 
                 <ActionFooter>
+
+                 <ActionPrimaryButton 
+                    title={student.id ? 'Salvar' : 'Adicionar'}
+                    onPress={() => {
+                        isValid() && onSave();
+                    }}
+                 />   
                 <ActionSecondaryButton 
                     title="Logout"
                     onPress={onLogoutPress}
