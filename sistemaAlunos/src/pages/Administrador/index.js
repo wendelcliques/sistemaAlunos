@@ -9,6 +9,7 @@ import ActionFooter, {
 
 import AdministradorCampoAluno from './AdministradorCampoAluno';
 import AdministradorCampoResponsavel from './AdministradorCampoResponsavel';
+import ButtonPanel from '../../componentes/ButtonPanel';
 
 import {cleanUserAuth} from '../../services/Auth';
 
@@ -65,6 +66,7 @@ const Administrador = ({navigation}) => {
 
     return (
               <View style={styles.container}>
+                  
                <StatusBar barStyle="light-content" backgroundColor={Colors.background} />
 
               <View style={styles.formContainer}>
@@ -77,6 +79,7 @@ const Administrador = ({navigation}) => {
                  value={responsavel}
                  onChangeValue={setAluno}
                  />
+                 <ButtonPanel onNewStudentPress={() => navigation.navigate('Ate')}/>
 
 
                 </View>
