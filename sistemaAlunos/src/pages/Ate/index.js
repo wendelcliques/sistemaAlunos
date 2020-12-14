@@ -9,6 +9,7 @@ import ActionFooter, {
 
 import AdministradorCampoAluno from '../Administrador/AdministradorCampoAluno';
 import AdministradorCampoResponsavel from '../Administrador/AdministradorCampoResponsavel';
+import CampoClasse from './CampoClasse';
 
 import Colors from '../../styles/Colors';
 
@@ -58,6 +59,11 @@ const Ate = ({navigation}) => {
     )
     const [responsavel, setResponsavel] = useState('')
 
+    const [responsavel1, setResponsavel1] = useState('')
+    const [responsavel2, setResponsavel2] = useState('')
+    const [responsavel3, setResponsavel3] = useState('')
+    const [responsavel4, setResponsavel4] = useState('')
+
    const onClose = () => {
     navigation.goBack();
    };
@@ -69,9 +75,23 @@ const Ate = ({navigation}) => {
            <StatusBar barStyle="light-content"
            backgroundColor={Colors.background}/>
 
-           <View>
+           <View style={styles.formContainer}> 
+                <AdministradorCampoAluno 
+                 value={aluno}
+                 onChangeValue={setAluno}
+                 />
 
+                <CampoClasse
+                 value={classe}
+                 onChangeValue={setClasse}
+                 />
+
+                <AdministradorCampoResponsavel
+                 value={responsavel}
+                 onChangeValue={setAluno}
+                 />
            </View>
+
 
            <ActionFooter>
 
@@ -107,3 +127,17 @@ const styles = StyleSheet.create({
 });
 
 export default Ate
+
+
+         /*  id: 'string',
+    entryAt: 'date',
+    name: 'string',
+    address: 'string?',
+    class: 'string?',
+    phone1: 'number?',
+    phone2: 'number?',
+    phone3: 'number?',
+    phone4: 'number?',
+    photo: 'string?',
+    user: 'string?',
+    responsible: 'Responsible[]?',*/
