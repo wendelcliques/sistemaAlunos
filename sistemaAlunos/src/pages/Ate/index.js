@@ -7,9 +7,18 @@ import ActionFooter, {
 
 } from '../../componentes/Core/ActionFooter';
 
-import AdministradorCampoAluno from '../Administrador/AdministradorCampoAluno';
-import AdministradorCampoResponsavel from '../Administrador/AdministradorCampoResponsavel';
+import CampoAluno from './CampoAluno';
+import CampoResponsavel1 from './CampoResponsavel1';
+import CampoResponsavel2 from './CampoResponsavel2';
+import CampoResponsavel3 from './CampoResponsavel3';
+import CampoResponsavel4 from './CampoResponsavel4';
 import CampoClasse from './CampoClasse';
+import CampoEndereco from './CampoEndereco';
+import CampoPhone1 from './CampoPhone1';
+import CampoPhone2 from './CampoPhone2';
+import CampoPhone3 from './CampoPhone3';
+import CampoPhone4 from './CampoPhone4';
+
 
 import Colors from '../../styles/Colors';
 
@@ -75,10 +84,16 @@ const Ate = ({navigation}) => {
            <StatusBar barStyle="light-content"
            backgroundColor={Colors.background}/>
 
+           <ScrollView>
            <View style={styles.formContainer}> 
-                <AdministradorCampoAluno 
+                <CampoAluno 
                  value={aluno}
                  onChangeValue={setAluno}
+                 />
+
+                <CampoEndereco
+                 value={classe}
+                 onChangeValue={setClasse}
                  />
 
                 <CampoClasse
@@ -86,11 +101,48 @@ const Ate = ({navigation}) => {
                  onChangeValue={setClasse}
                  />
 
-                <AdministradorCampoResponsavel
+                <CampoPhone1
+                 value={classe}
+                 onChangeValue={setClasse}
+                 />
+
+                <CampoPhone2
+                 value={classe}
+                 onChangeValue={setClasse}
+                 />
+
+                <CampoPhone3
+                 value={classe}
+                 onChangeValue={setClasse}
+                 />
+
+                <CampoPhone4
+                 value={classe}
+                 onChangeValue={setClasse}
+                 />
+
+                <CampoResponsavel1
+                 value={responsavel}
+                 onChangeValue={setAluno}
+                 />
+
+                <CampoResponsavel2
+                 value={responsavel}
+                 onChangeValue={setAluno}
+                 />
+
+                <CampoResponsavel3
+                 value={responsavel}
+                 onChangeValue={setAluno}
+                 />
+
+                <CampoResponsavel4
                  value={responsavel}
                  onChangeValue={setAluno}
                  />
            </View>
+
+           </ScrollView>
 
 
            <ActionFooter>

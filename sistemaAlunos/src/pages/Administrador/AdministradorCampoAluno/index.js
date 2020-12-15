@@ -1,13 +1,13 @@
 import React from 'react'
 
 
-import CampoTextoAluno from '../../../componentes/Core/CampoTextoAluno';
+import CampoTextoAlunoP from '../../../componentes/Core/CampoTextoAlunoP';
 
 
 const AdministradorCampoAluno = ({value, onChangeValue}) => {
     return (
 
-        <CampoTextoAluno 
+        <CampoTextoAlunoP 
         value={value}
         onChangeValue={onChangeValue}
         />

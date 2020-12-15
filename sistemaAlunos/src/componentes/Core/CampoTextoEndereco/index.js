@@ -3,8 +3,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 import Colors from '../../../styles/Colors';
 
-
-const CampoTextoAluno = ({
+const CampoTextoEndereco = ({
     value,
     onChangeValue,
 }) => {
@@ -12,7 +11,7 @@ const CampoTextoAluno = ({
         <View style={styles.container}>
           <TextInput
            style={styles.input}
-           placeholder="Nome do aluno"
+           placeholder="Endereço"
            placeholderTextColor={Colors.carbon}
           // keyboardType="email-address"
            autoCapitalize="none"
@@ -31,25 +30,21 @@ const CampoTextoAluno = ({
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        backgroundColor: Colors.asphalt,
-        borderRadius: 15,
-        marginHorizontal: 20,
-        marginVertical: 4,
-     },
- 
-     input: {
-        flex: 1,
-        fontSize: 20,
-        color: Colors.white,
-        textAlign: 'center',
-        paddingLeft: 0,
-        paddingRight: 20,
-     },
+       flexDirection: 'row',
+       backgroundColor: Colors.asphalt,
+       borderRadius: 15,
+       marginHorizontal: 20,
+       marginVertical: 4,
+    },
+
+    input: {
+       flex: 1,
+       fontSize: 20,
+       color: Colors.white,
+       textAlign: 'center',
+       paddingLeft: 0,
+       paddingRight: 20,
+    },
 });
 
-export default CampoTextoAluno
-
-
-
-
+export default CampoTextoEndereco
