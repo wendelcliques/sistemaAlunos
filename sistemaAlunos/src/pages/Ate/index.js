@@ -19,6 +19,7 @@ import CampoPhone2 from './CampoPhone2';
 import CampoPhone3 from './CampoPhone3';
 import CampoPhone4 from './CampoPhone4';
 
+import useStudents from '../../hooks/useStudents';
 
 import Colors from '../../styles/Colors';
 
@@ -52,7 +53,7 @@ const Ate = ({navigation}) => {
         },
     }
 
-    
+    const [, addStudent, ] = useStudents();
 
     const [aluno, setAluno] = useState('')
     const [address, setAddress] = useState('')
@@ -73,6 +74,31 @@ const Ate = ({navigation}) => {
     const [responsavel3, setResponsavel3] = useState('')
     const [responsavel4, setResponsavel4] = useState('')
 
+
+    const onSave = () => {
+        const data = {
+            //id: student.id,
+
+            entryAt: student.entryAt || new Date(),
+            name: aluno,
+            address: address,
+            class: classe,
+            phone1: phone1,
+            phone2: phone2,
+             phone3: phone3,
+            phone4: phone4,
+            photo: photo,
+            //user: 'string?',
+            responsible: responsavel,
+    };
+
+    console.log('ate :: save ', data);
+    addStudent(data);
+
+   
+
+    };
+
    const onClose = () => {
     navigation.goBack();
    };
@@ -92,8 +118,8 @@ const Ate = ({navigation}) => {
                  />
 
                 <CampoEndereco
-                 value={classe}
-                 onChangeValue={setClasse}
+                 value={address}
+                 onChangeValue={setAddress}
                  />
 
                 <CampoClasse
@@ -102,43 +128,43 @@ const Ate = ({navigation}) => {
                  />
 
                 <CampoPhone1
-                 value={classe}
-                 onChangeValue={setClasse}
+                 value={phone1}
+                 onChangeValue={setPhone1}
                  />
 
                 <CampoPhone2
-                 value={classe}
-                 onChangeValue={setClasse}
+                 value={phone2}
+                 onChangeValue={setPhone2}
                  />
 
                 <CampoPhone3
-                 value={classe}
-                 onChangeValue={setClasse}
+                 value={phone3}
+                 onChangeValue={setPhone3}
                  />
 
                 <CampoPhone4
-                 value={classe}
-                 onChangeValue={setClasse}
+                 value={phone4}
+                 onChangeValue={setPhone4}
                  />
 
                 <CampoResponsavel1
-                 value={responsavel}
-                 onChangeValue={setAluno}
+                 value={responsavel1}
+                 onChangeValue={setResponsavel1}
                  />
 
                 <CampoResponsavel2
-                 value={responsavel}
-                 onChangeValue={setAluno}
+                 value={responsavel2}
+                 onChangeValue={setResponsavel2}
                  />
 
                 <CampoResponsavel3
-                 value={responsavel}
-                 onChangeValue={setAluno}
+                 value={responsavel3}
+                 onChangeValue={setResponsavel3}
                  />
 
                 <CampoResponsavel4
-                 value={responsavel}
-                 onChangeValue={setAluno}
+                 value={responsavel4}
+                 onChangeValue={setResponsavel4}
                  />
            </View>
 
@@ -150,7 +176,7 @@ const Ate = ({navigation}) => {
                 <ActionPrimaryButton 
                     title={student.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
-                     isValid() && onSave();
+                     onSave();
                      }}
                 />   
                 <ActionSecondaryButton 
@@ -179,17 +205,3 @@ const styles = StyleSheet.create({
 });
 
 export default Ate
-
-
-         /*  id: 'string',
-    entryAt: 'date',
-    name: 'string',
-    address: 'string?',
-    class: 'string?',
-    phone1: 'number?',
-    phone2: 'number?',
-    phone3: 'number?',
-    phone4: 'number?',
-    photo: 'string?',
-    user: 'string?',
-    responsible: 'Responsible[]?',*/

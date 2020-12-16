@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 import {getUserAuth} from './Auth';
 import StudentSchema from '../schemas/StudentSchema';
 
-export const getEntries = async () => {
+export const getStudents = async () => {
     let querySnapshot;
     querySnapshot = await firestore()
     .collection('students')
@@ -13,7 +13,7 @@ export const getEntries = async () => {
     .get();
 
 
-let entries = querySnapshot.docs.map(documentSnapshot => {
+let students = querySnapshot.docs.map(documentSnapshot => {
     return {...documentSnapshot.data(), id: documentSnapshot.id};
 });
 
@@ -29,9 +29,9 @@ export const addStudent = async student => {
     try {
              data = {
                     entryAt: student.entryAt || new Date(),
-                    name: student.name,
+                    name: student.aluno,
                     address: student.address,
-                    class: student.class,
+                    class: student.classe,
                     phone1: student.phone1,
                     phone2: student.phone2,
                      phone3: student.phone3,
@@ -44,6 +44,9 @@ export const addStudent = async student => {
                 await firestore()
                 .collection('students')
                 .add(data);
+
+                Alert.alert('Aluno adicionado com sucesso');
+                
                 } catch (error) {
                     console.error('addStudent :: erro ao salvar conteúdo: ',
                     JSON.stringify(data),
