@@ -38,7 +38,7 @@ export const addStudent = async student => {
                     phone4: student.phone4,
                     photo: student.photo,
                     //user: 'string?',
-                    responsible: student.responsible1.name,
+                    responsible: student.responsible,
                     };
 
                 await firestore()
@@ -57,4 +57,19 @@ export const addStudent = async student => {
 
                 return data;
         
+};
+
+export const deleteStudent = async student => {
+    try {
+        await firestore()
+        .collection('students')
+        .doc(student.id)
+        .delete();
+    } catch (error) {
+        console.error('deleteStudent :: erro ao apagar conteúdo: ',
+        JSON.stringify(data),
+        JSON.stringify(error),
+        );
+        Alert.alert('Houve um erro ao apagar esse lançamento');
+    }
 };

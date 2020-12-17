@@ -46,7 +46,9 @@ const Ate = ({navigation}) => {
             responsible3: {
                 name: null,
             },
-            responsible4: {
+           
+           
+           responsible4: {
                 name: null,
             },
 
@@ -76,6 +78,7 @@ const Ate = ({navigation}) => {
 
 
     const onSave = () => {
+
         const data = {
             //id: student.id,
 
@@ -89,7 +92,22 @@ const Ate = ({navigation}) => {
             phone4: phone4,
             photo: photo,
             //user: 'string?',
-            responsible: responsavel,
+            responsible: {
+                responsible1: {
+                    name: responsavel1,
+                },
+                responsible2: {
+                    name: responsavel2,
+                },
+                responsible3: {
+                    name: responsavel3,
+                },
+               
+               
+               responsible4: {
+                    name: responsavel4,
+                },
+            }
     };
 
     console.log('ate :: save ', data);

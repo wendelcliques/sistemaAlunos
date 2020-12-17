@@ -4,6 +4,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {
     getStudents,
     addStudent,
+    deleteStudent,
 } from '../services/Students';
 
 const useStudents = () => {
@@ -21,7 +22,7 @@ const useStudents = () => {
         ),
     );
 
-    return [students, addStudent];
+    return [students, addStudent, deleteStudent];
 };
 
 export default useStudents;

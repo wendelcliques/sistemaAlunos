@@ -1,0 +1,45 @@
+import React from 'react'
+import { FlatList } from 'react-native'
+import {useNavigation} from '@react-navigation/native'
+
+import Container from '../Core/Container'
+
+import StudentListItem from './StudentListItem'
+
+import useStudents from '../../hooks/useStudents'
+
+const StudentList = () => {
+    const navigation = useNavigation();
+    const [students] = useStudents();
+    return (
+        <Container
+        title="Lista de Alunos">
+
+            <FlatList
+            data={students}
+          
+            keyExtractor={item => item.id}
+            denderItem={({item, index}) => (
+                
+                <StudentListItem
+                student={item}
+
+             
+                onStudentPress={student => {
+                    navigation.navigate('Ate', {
+                        student: student,
+                        //isEdit: true,
+
+                    });
+                }}
+                />
+
+               
+            )}
+           
+           />
+        </Container>
+    );
+};
+
+export default StudentList;

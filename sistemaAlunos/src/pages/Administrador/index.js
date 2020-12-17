@@ -7,6 +7,8 @@ import ActionFooter, {
 
 } from '../../componentes/Core/ActionFooter';
 
+import StudentList from '../../componentes/StudentList';
+
 import AdministradorCampoAluno from './AdministradorCampoAluno';
 import AdministradorCampoResponsavel from './AdministradorCampoResponsavel';
 import ButtonPanel from '../../componentes/ButtonPanel';
@@ -80,6 +82,10 @@ const Administrador = ({navigation}) => {
                  onChangeValue={setAluno}
                  />
                  <ButtonPanel onNewStudentPress={() => navigation.navigate('Ate')}/>
+
+               
+                     <StudentList />
+             
 
 
                 </View>
