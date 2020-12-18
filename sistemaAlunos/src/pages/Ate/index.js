@@ -19,12 +19,16 @@ import CampoPhone2 from './CampoPhone2';
 import CampoPhone3 from './CampoPhone3';
 import CampoPhone4 from './CampoPhone4';
 
+import DeleteAction from './DeleteAction';
+
 import useStudents from '../../hooks/useStudents';
 
 import Colors from '../../styles/Colors';
 
-const Ate = ({navigation}) => {
-    const student = {
+const Ate = ({route, navigation}) => {
+    const student = route.params?.student? route.params.student
+    
+    : {
         id: null,
         //entryAt: new Date(),
         aluno: null,
@@ -36,7 +40,7 @@ const Ate = ({navigation}) => {
         phone4: null,
         photo: null,
         user: null,
-        responsavel: {
+        responsible: {
             responsible1: {
                 name: null,
             },
@@ -55,15 +59,17 @@ const Ate = ({navigation}) => {
         },
     }
 
-    const [, addStudent, ] = useStudents();
+    const isEdit = route.params?.isEdit ? route.params.isEdit : false;
 
-    const [aluno, setAluno] = useState('')
-    const [address, setAddress] = useState('')
-    const [classe, setClasse] = useState('')
-    const [phone1, setPhone1] = useState('')
-    const [phone2, setPhone2] = useState('')
-    const [phone3, setPhone3] = useState('')
-    const [phone4, setPhone4] = useState('')
+    const [, addStudent, updateStudent, deleteStudent ] = useStudents();
+
+    const [aluno, setAluno] = useState(student.name)
+    const [address, setAddress] = useState(student.address)
+    const [classe, setClasse] = useState(student.class)
+    const [phone1, setPhone1] = useState(student.phone1)
+    const [phone2, setPhone2] = useState(student.phone2)
+    const [phone3, setPhone3] = useState(student.phone3)
+    const [phone4, setPhone4] = useState(student.phone4)
     const [photo, setPhoto] = useState('')
     const [user, setUser] = useState('')
     const [entryAt, setEntryAt] = useState(
@@ -71,16 +77,16 @@ const Ate = ({navigation}) => {
     )
     const [responsavel, setResponsavel] = useState('')
 
-    const [responsavel1, setResponsavel1] = useState('')
-    const [responsavel2, setResponsavel2] = useState('')
-    const [responsavel3, setResponsavel3] = useState('')
-    const [responsavel4, setResponsavel4] = useState('')
+    const [responsavel1, setResponsavel1] = useState(student.responsible.responsible1.name)
+    const [responsavel2, setResponsavel2] = useState(student.responsible.responsible2.name)
+    const [responsavel3, setResponsavel3] = useState(student.responsible.responsible3.name)
+    const [responsavel4, setResponsavel4] = useState(student.responsible.responsible4.name)
 
 
     const onSave = () => {
 
         const data = {
-            //id: student.id,
+            id: student.id,
 
             entryAt: student.entryAt || new Date(),
             name: aluno,
@@ -111,10 +117,15 @@ const Ate = ({navigation}) => {
     };
 
     console.log('ate :: save ', data);
-    addStudent(data);
+   isEdit ? updateStudent(data) : addStudent(data);
 
-   
+   onClose();
 
+    };
+
+    const onDelete = () => {
+        deleteStudent(student);
+        onClose();
     };
 
    const onClose = () => {
@@ -188,11 +199,16 @@ const Ate = ({navigation}) => {
 
            </ScrollView>
 
+           <View style={styles.formActionContainer}>
+               
+                <DeleteAction student={student} onOkPress={onDelete} />
+           </View>
+
 
            <ActionFooter>
 
                 <ActionPrimaryButton 
-                    title={student.id ? 'Salvar' : 'Adicionar'}
+                    title={student.id ? 'Atualizar' : 'Adicionar'}
                     onPress={() => {
                      onSave();
                      }}

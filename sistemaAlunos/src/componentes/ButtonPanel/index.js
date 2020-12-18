@@ -19,7 +19,7 @@ const ButtonPanel = ({onNewStudentPress}) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 23,
+        marginBottom: -23,
     },
     button: {
         backgroundColor: Colors.green,

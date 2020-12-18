@@ -4,25 +4,24 @@ import {useFocusEffect} from '@react-navigation/native';
 import {
     getStudents,
     addStudent,
+    updateStudent,
     deleteStudent,
 } from '../services/Students';
 
-const useStudents = () => {
+const useStudents = (student) => {
     const [students, setStudents] = useState([]);
 
     useFocusEffect(
         useCallback(() => {
             const loadStudents = async () => {
-                const data = await getStudents();
+                const data = await getStudents(student);
                 setStudents(data);
-            }
+            };
                 loadStudents();
-            },
-            [],
-        ),
+            }, [student]),
     );
 
-    return [students, addStudent, deleteStudent];
+    return [students, addStudent, updateStudent, deleteStudent];
 };
 
 export default useStudents;

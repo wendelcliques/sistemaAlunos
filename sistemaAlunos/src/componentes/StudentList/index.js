@@ -8,9 +8,9 @@ import StudentListItem from './StudentListItem'
 
 import useStudents from '../../hooks/useStudents'
 
-const StudentList = () => {
+const StudentList = (student) => {
     const navigation = useNavigation();
-    const [students] = useStudents();
+    const [students] = useStudents(student);
     return (
         <Container
         title="Lista de Alunos">
@@ -19,7 +19,7 @@ const StudentList = () => {
             data={students}
           
             keyExtractor={item => item.id}
-            denderItem={({item, index}) => (
+            renderItem={({item, index}) => (
                 
                 <StudentListItem
                 student={item}
@@ -28,7 +28,7 @@ const StudentList = () => {
                 onStudentPress={student => {
                     navigation.navigate('Ate', {
                         student: student,
-                        //isEdit: true,
+                        isEdit: true,
 
                     });
                 }}

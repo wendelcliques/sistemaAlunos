@@ -15,7 +15,7 @@ const StudentListItem = ({student, onStudentPress}) => {
         >
         <View style={styles.container}>
             <View style={styles.photo}>
-            <Text>FOTO</Text>
+            <Text style={styles.descriptionRightText}>FOTO</Text>
             </View >
 
             <View style={styles.description}>
@@ -28,7 +28,7 @@ const StudentListItem = ({student, onStudentPress}) => {
             </View>
 
             <View style={styles.descriptionRight}>
-                <Text style={styles.descriptionRightText}>{student.classe}</Text>
+                <Text style={styles.descriptionRightText}>{student.class}</Text>
                 <Text style={styles.descriptionRightText}>{student.phone1}</Text>
                 <Text style={styles.descriptionRightText}>{student.phone2}</Text>
                 <Text style={styles.descriptionRightText}>{student.phone3}</Text>
@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
     description: {
         flex: 1,
         justifyContent: 'center',
+        marginLeft: 20,
+        marginBottom: 10,
     },
     descriptionText: {
         fontSize: 14,
