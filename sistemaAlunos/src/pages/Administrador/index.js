@@ -15,6 +15,8 @@ import ButtonPanel from '../../componentes/ButtonPanel';
 
 import {cleanUserAuth} from '../../services/Auth';
 
+import useStudents from '../../hooks/useStudents';
+
 import Colors from '../../styles/Colors';
 
 
@@ -42,6 +44,8 @@ const Administrador = ({navigation}) => {
         },
     }
 
+    const [ searchStudent] = useStudents();
+
     const [aluno, setAluno] = useState('')
     const [responsavel, setResponsavel] = useState('')
     const [loading, setLoading] = useState(false)
@@ -55,16 +59,16 @@ const Administrador = ({navigation}) => {
         });
     }
 
-    /*const onSearch = () => {
+    const onSearch = () => {
         const data ={
             id: student.id,
             student: aluno,
             responsible: responsavel,
         }
         console.log('Administrador :: onSearch', data);
-        //searchStudent();
+        searchStudent(data);
 
-    }*/
+    }
 
     return (
               <View style={styles.container}>
@@ -79,7 +83,7 @@ const Administrador = ({navigation}) => {
 
                 <AdministradorCampoResponsavel
                  value={responsavel}
-                 onChangeValue={setAluno}
+                 onChangeValue={setResponsavel}
                  />
                  <ButtonPanel onNewStudentPress={() => navigation.navigate('Ate')}/>
 
@@ -95,7 +99,7 @@ const Administrador = ({navigation}) => {
                  <ActionPrimaryButton 
                     title={student.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
-                        isValid() && onSave();
+                     onSearch();
                     }}
                  />   
                 <ActionSecondaryButton 

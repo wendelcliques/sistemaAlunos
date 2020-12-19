@@ -108,3 +108,28 @@ export const deleteStudent = async student => {
         Alert.alert('Houve um erro ao apagar esse lançamento');
     }
 };
+
+export const searchStudent = async data => {
+
+    console.log('searchStudent :: value: ', JSON.stringify(data));
+    
+        let querySnapshot;
+    querySnapshot = await firestore()
+        .collection('students')
+        
+        .orderByChild('name')
+        .startAt(data.responsible)
+        .endAt(data.responsible, '\uf8ff')
+        
+        .get();
+        
+        let students = querySnapshot.docs.map(documentSnapshot => {
+            return {...documentSnapshot.data(), id: documentSnapshot.id};
+        });
+
+        return students;
+       
+        };
+
+     
+

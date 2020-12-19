@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import {useEffect, useState, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 
 import {
@@ -6,22 +6,37 @@ import {
     addStudent,
     updateStudent,
     deleteStudent,
+    searchStudent,
 } from '../services/Students';
 
 const useStudents = (student) => {
     const [students, setStudents] = useState([]);
+    const [seaStudent, setSeaStudent] = useState([]);
+   
 
-    useFocusEffect(
+    useEffect(
         useCallback(() => {
             const loadStudents = async () => {
                 const data = await getStudents(student);
+               
                 setStudents(data);
             };
+
+            const loadSearchStudent = async () => {
+                const data = await searchStudent(student);
+                setSeaStudent(data);
+
+            };
+
+            loadSearchStudent();
                 loadStudents();
             }, [student]),
+            
     );
 
-    return [students, addStudent, updateStudent, deleteStudent];
+   
+   
+    return [students, addStudent, updateStudent, deleteStudent, searchStudent];
 };
 
 export default useStudents;

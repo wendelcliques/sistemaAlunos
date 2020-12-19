@@ -8,7 +8,7 @@ import StudentListItem from './StudentListItem'
 
 import useStudents from '../../hooks/useStudents'
 
-const StudentList = (student) => {
+const StudentList = ({student}) => {
     const navigation = useNavigation();
     const [students] = useStudents(student);
     return (

@@ -61,7 +61,7 @@ const Ate = ({route, navigation}) => {
 
     const isEdit = route.params?.isEdit ? route.params.isEdit : false;
 
-    const [, addStudent, updateStudent, deleteStudent ] = useStudents();
+    const [getStudents, addStudent, updateStudent, deleteStudent] = useStudents();
 
     const [aluno, setAluno] = useState(student.name)
     const [address, setAddress] = useState(student.address)

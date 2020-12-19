@@ -10,7 +10,7 @@ const StudentListItem = ({student, onStudentPress}) => {
 
         <TouchableOpacity
         onPress={() => {
-            onStudentPress && onStudentPress(student)
+            onStudentPress && onStudentPress(student);
         }}
         >
         <View style={styles.container}>
