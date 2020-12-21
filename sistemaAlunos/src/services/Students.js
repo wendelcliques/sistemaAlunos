@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 import {getUserAuth} from './Auth';
 import StudentSchema from '../schemas/StudentSchema';
 
-export const getStudents = async (student) => {
+export const getStudents = async () => {
     let querySnapshot;
     querySnapshot = await firestore()
     .collection('students')
@@ -109,17 +109,18 @@ export const deleteStudent = async student => {
     }
 };
 
-export const searchStudent = async data => {
+export const searchStudent = async () => {
 
-    console.log('searchStudent :: value: ', JSON.stringify(data));
+    //console.log('searchStudent :: value: ', JSON.stringify(data));
     
         let querySnapshot;
     querySnapshot = await firestore()
         .collection('students')
         
-        .orderByChild('name')
-        .startAt(data.responsible)
-        .endAt(data.responsible, '\uf8ff')
+        .orderBy("name")
+        .startAt('we')
+     .endAt('we\uf8ff')
+        
         
         .get();
         
@@ -127,9 +128,25 @@ export const searchStudent = async data => {
             return {...documentSnapshot.data(), id: documentSnapshot.id};
         });
 
+        console.log('searchStudent :: value: students', JSON.stringify(students));
         return students;
        
         };
+
+        /*export const getStudents = async (student) => {
+            let querySnapshot;
+            querySnapshot = await firestore()
+            .collection('students')
+            .orderBy('entryAt')
+            .get();
+        
+        
+        let students = querySnapshot.docs.map(documentSnapshot => {
+            return {...documentSnapshot.data(), id: documentSnapshot.id};
+        });
+        
+        return students;
+        };*/
 
      
 

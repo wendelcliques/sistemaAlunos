@@ -15,7 +15,7 @@ import ButtonPanel from '../../componentes/ButtonPanel';
 
 import {cleanUserAuth} from '../../services/Auth';
 
-import useStudents from '../../hooks/useStudents';
+import useResearch from '../../hooks/useResearch';
 
 import Colors from '../../styles/Colors';
 
@@ -44,7 +44,7 @@ const Administrador = ({navigation}) => {
         },
     }
 
-    const [ searchStudent] = useStudents();
+    const [ searchStudent] = useResearch();
 
     const [aluno, setAluno] = useState('')
     const [responsavel, setResponsavel] = useState('')
@@ -136,73 +136,4 @@ const styles = StyleSheet.create({
 export default Administrador
 
 
-/*<TouchableOpacity 
-           //onPress={onPassword}
-           
-           style={styles.buttonPasswordIn}
-           >
-               <Text style={styles.buttonPasswordInText}>
 
-               {loadingP ? 'Enviando a solicitação...' : 'Esqueceu a senha?'}
-                
-               </Text>
-           </TouchableOpacity>
-
-
-
-
-
-
-
-           <View
- // behavior="padding" 
-       style={styles.container}>
-           
-
-            <TextInput
-           style={styles.input}
-           placeholder="Nome do responsável"
-           placeholderTextColor={Colors.carbon}
-           //secureTextEntry
-           autoCapitalize="none"
-           autoCorrect={false}
-           value={responsavel}
-           onChangeText={text => {
-               setResponsavel(text)
-           }}
-           />
-
-<TouchableOpacity 
-   onPress={() => {
-    navigation.navigate('Ate');
-}} 
-//onPress={onSubmit} 
-style={styles.button}>
-               <Text style={styles.buttonText}>
-                {loading ? 'Carregando...' : 'Pesquisar'}
-               </Text>
-           </TouchableOpacity>
-
-           
-           <TouchableOpacity 
-           onPress={() => {
-               navigation.navigate('SignUp');
-           }} 
-           style={styles.buttonSignIn}
-           >
-               <Text style={styles.buttonSignInText}>
-                Criar uma conta
-               </Text>
-           </TouchableOpacity>
-      
-       </View>
-       
-       <View>
-
-           
-        </View>
-
-        </View>
-    )
-}
-           */

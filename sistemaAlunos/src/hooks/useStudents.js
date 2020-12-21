@@ -6,12 +6,12 @@ import {
     addStudent,
     updateStudent,
     deleteStudent,
-    searchStudent,
+    
 } from '../services/Students';
 
 const useStudents = (student) => {
     const [students, setStudents] = useState([]);
-    const [seaStudent, setSeaStudent] = useState([]);
+   
    
 
     useEffect(
@@ -22,13 +22,9 @@ const useStudents = (student) => {
                 setStudents(data);
             };
 
-            const loadSearchStudent = async () => {
-                const data = await searchStudent(student);
-                setSeaStudent(data);
+           
 
-            };
-
-            loadSearchStudent();
+        
                 loadStudents();
             }, [student]),
             
@@ -36,7 +32,7 @@ const useStudents = (student) => {
 
    
    
-    return [students, addStudent, updateStudent, deleteStudent, searchStudent];
+    return [students, addStudent, updateStudent, deleteStudent];
 };
 
 export default useStudents;
