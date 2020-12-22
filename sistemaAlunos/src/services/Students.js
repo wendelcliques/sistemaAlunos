@@ -115,9 +115,9 @@ export const searchStudent = async () => {
     
         let querySnapshot;
     querySnapshot = await firestore()
-        .collection('students')
+        .collection('students.responsible.responsible1.name')
         
-        .orderBy("name")
+        
         .startAt('we')
      .endAt('we\uf8ff')
         
