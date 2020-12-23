@@ -109,18 +109,21 @@ export const deleteStudent = async student => {
     }
 };
 
-export const searchStudent = async () => {
+export const searchStudent = async student => {
 
-    //console.log('searchStudent :: value: ', JSON.stringify(data));
-    
+    //
+        let controle = student.responsible
+        console.log('searchStudent :: value: ', JSON.stringify(controle));
         let querySnapshot;
     querySnapshot = await firestore()
-        .collection('students.responsible.responsible1.name')
+        .collection('students')
         
-        
+        .where('responsible.responsible1.name', '>=', 
+        controle  || 
+        '' )
         .startAt('we')
-     .endAt('we\uf8ff')
-        
+     //.endAt('we\uf8ff')
+        .orderBy('order', 'asc')
         
         .get();
         
