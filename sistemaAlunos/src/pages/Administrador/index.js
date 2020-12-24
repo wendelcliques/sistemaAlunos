@@ -22,29 +22,17 @@ import Colors from '../../styles/Colors';
 
 
 
-const Administrador = ({navigation}) => {
+const Administrador = ({route, navigation}) => {
 
-    const student = {
+    const student = route.params?.student? route.params.student
+    
+    : {
         id: null,
         aluno: null,
-        responsavel: {
-            responsible1: {
-                name: null,
-            },
-            responsible2: {
-                name: null,
-            },
-            responsible3: {
-                name: null,
-            },
-            responsible4: {
-                name: null,
-            },
-
-        },
+        responsavel: null,
     }
 
-    const [ searchStudent] = useResearch();
+    const [ getStudents, searchStudent] = useResearch();
 
     const [aluno, setAluno] = useState('')
     const [responsavel, setResponsavel] = useState('')
@@ -66,7 +54,7 @@ const Administrador = ({navigation}) => {
             responsible: responsavel,
         }
         console.log('Administrador :: onSearch', data);
-        searchStudent(data);
+       // getStudents(data);
 
     }
 

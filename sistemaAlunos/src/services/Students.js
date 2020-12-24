@@ -2,8 +2,8 @@ import {Alert} from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
 
-import {getUserAuth} from './Auth';
-import StudentSchema from '../schemas/StudentSchema';
+
+
 
 export const getStudents = async () => {
     let querySnapshot;
@@ -109,33 +109,45 @@ export const deleteStudent = async student => {
     }
 };
 
-export const searchStudent = async student => {
+export const searchStudent =  (student) => {
 
     //
         let controle = student.responsible
         console.log('searchStudent :: value: ', JSON.stringify(controle));
-        let querySnapshot;
-    querySnapshot = await firestore()
-        .collection('students')
         
-        .where('responsible.responsible1.name', '>=', 
-        controle  || 
-        '' )
-        .startAt('we')
-     //.endAt('we\uf8ff')
-        .orderBy('order', 'asc')
-        
-        .get();
-        
-        let students = querySnapshot.docs.map(documentSnapshot => {
-            return {...documentSnapshot.data(), id: documentSnapshot.id};
-        });
-
-        console.log('searchStudent :: value: students', JSON.stringify(students));
-        return students;
-       
         };
 
+       
+       
+       /* let querySnapshot;
+        querySnapshot = await firestore()
+            .collection('students')
+            
+            .where('responsible.responsible1.name', '>=', 
+            controle  || 
+            '' )
+            .startAt('we')
+         //.endAt('we\uf8ff')
+            .orderBy('order', 'asc')
+            
+            .get();
+            
+            let students = querySnapshot.docs.map(documentSnapshot => {
+                return {...documentSnapshot.data(), id: documentSnapshot.id};
+            });
+    
+            console.log('searchStudent :: value: students', JSON.stringify(students));
+            return students;
+           
+       
+       
+       
+       
+       
+       
+       
+       
+       
         /*export const getStudents = async (student) => {
             let querySnapshot;
             querySnapshot = await firestore()
