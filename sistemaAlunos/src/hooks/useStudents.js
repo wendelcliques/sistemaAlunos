@@ -20,9 +20,7 @@ const useStudents = (student) => {
                 const data = await getStudents(student);
                
                 setStudents(data);
-            };
-
-           
+            };         
 
         
                 loadStudents();

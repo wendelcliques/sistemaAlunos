@@ -32,7 +32,7 @@ const Administrador = ({route, navigation}) => {
         responsavel: null,
     }
 
-    const [ getStudents, searchStudent] = useResearch();
+    const [ getStudent, searchStudent] = useResearch();
 
     const [aluno, setAluno] = useState('')
     const [responsavel, setResponsavel] = useState('')
@@ -54,7 +54,7 @@ const Administrador = ({route, navigation}) => {
             responsible: responsavel,
         }
         console.log('Administrador :: onSearch', data);
-       // getStudents(data);
+        getStudent(data);
 
     }
 
