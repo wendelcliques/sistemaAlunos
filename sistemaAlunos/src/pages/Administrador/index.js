@@ -54,7 +54,7 @@ const Administrador = ({route, navigation}) => {
             responsible: responsavel,
         }
         console.log('Administrador :: onSearch', data);
-        getStudent(data);
+       // getStudent(data);
 
     }
 

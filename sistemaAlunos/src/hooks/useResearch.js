@@ -1,7 +1,7 @@
 import {useEffect, useState, useCallback} from 'react';
 
 import {
-    getStudent,
+    getStudents,
     
 } from '../services/Students';
 
@@ -14,8 +14,8 @@ const useRechearch = () => {
           
 
             const loadSearchStudent = async (student) => {
-                console.log('hooks :: getStudent', student);
-                const data = await getStudent(student);
+                
+                const data = await getStudents(student);
                 setSeaStudent(data);
 
             };
