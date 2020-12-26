@@ -29,13 +29,13 @@ const Administrador = ({route, navigation}) => {
     : {
         id: null,
         aluno: null,
-        responsavel: null,
+        responsavel: 'we',
     }
 
-    const [ getStudent, searchStudent] = useResearch();
+    const [ ,] = useResearch();
 
     const [aluno, setAluno] = useState('')
-    const [responsavel, setResponsavel] = useState('')
+    const [responsavel, setResponsavel] = useState(student.responsavel)
     const [loading, setLoading] = useState(false)
 
     const onLogoutPress = async () => {
@@ -54,7 +54,7 @@ const Administrador = ({route, navigation}) => {
             responsible: responsavel,
         }
         console.log('Administrador :: onSearch', data);
-       // getStudent(data);
+        loadSearchStudent(data);
 
     }
 

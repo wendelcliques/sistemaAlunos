@@ -1,11 +1,11 @@
 import {useEffect, useState, useCallback} from 'react';
 
 import {
-    getStudents,
+    getStudent,
     
 } from '../services/Students';
 
-const useRechearch = () => {
+const useRechearch = (responsible) => {
   
     const [seaStudent, setSeaStudent] = useState([]);
 
@@ -13,9 +13,9 @@ const useRechearch = () => {
         useCallback(() => {
           
 
-            const loadSearchStudent = async (student) => {
+            const loadSearchStudent = async () => {
                 
-                const data = await getStudents(student);
+                const data = await getStudent(responsible);
                 setSeaStudent(data);
 
             };

@@ -109,19 +109,19 @@ export const deleteStudent = async student => {
     }
 };
 
-/*export const getStudent = async (student) => {
+export const getStudent = async responsible => {
 
     
-        //let controle = student.responsible
-       // console.log('searchStudent :: value: ', JSON.stringify(controle));
+        let controle = responsible
+        console.log('searchStudent :: value: ', JSON.stringify(controle));
 
         let querySnapshot;
         querySnapshot = await firestore()
         .collection('students')
-        .where(responsible.responsible1.name, '>=', '')
+        .where('responsible.responsible1.name', '>=', '')
         .orderBy('responsible.responsible1.name')
-        .startAt('we')
-        .endAt('we'+'uf8ff')
+        .startAt('uf8ff'+controle)
+        .endAt(controle+'uf8ff')
         .get();
     
     
