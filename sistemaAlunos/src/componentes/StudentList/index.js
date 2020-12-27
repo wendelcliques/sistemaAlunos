@@ -10,7 +10,7 @@ import useStudents from '../../hooks/useStudents'
 
 const StudentList = ({student}) => {
     const navigation = useNavigation();
-    const [students] = useStudents(student);
+    const [students, responsible] = useStudents(student);
     return (
         <Container
         title="Lista de Alunos">
