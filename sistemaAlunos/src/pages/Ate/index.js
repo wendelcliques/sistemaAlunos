@@ -26,9 +26,7 @@ import useStudents from '../../hooks/useStudents';
 import Colors from '../../styles/Colors';
 
 const Ate = ({route, navigation}) => {
-    const student = route.params?.student? route.params.student
-    
-    : {
+    const student = route.params?.student? route.params.student : {
         id: null,
         //entryAt: new Date(),
         aluno: null,

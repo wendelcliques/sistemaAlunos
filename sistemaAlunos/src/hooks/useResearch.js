@@ -5,7 +5,7 @@ import {
     
 } from '../services/Students';
 
-const useRechearch = (responsible) => {
+const useRechearch = (student1) => {
   
     const [seaStudent, setSeaStudent] = useState([]);
 
@@ -15,7 +15,7 @@ const useRechearch = (responsible) => {
 
             const loadSearchStudent = async () => {
                 
-                const data = await getStudent(responsible);
+                const data = await getStudent(student1);
                 setSeaStudent(data);
 
             };

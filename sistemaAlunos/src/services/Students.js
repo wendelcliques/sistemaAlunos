@@ -109,11 +109,11 @@ export const deleteStudent = async student => {
     }
 };
 
-export const getStudent = async (respo) => {
+export const getStudent = async (student1) => {
 
     
-        let controle = responsible
-       // console.log('searchStudent :: value: ', JSON.stringify(controle));
+        let controle = student1.responsible
+        console.log('searchStudent :: value: ', JSON.stringify(controle));
 
         let querySnapshot;
         querySnapshot = await firestore()

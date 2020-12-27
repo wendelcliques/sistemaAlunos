@@ -24,18 +24,18 @@ import Colors from '../../styles/Colors';
 
 const Administrador = ({route, navigation}) => {
 
-    const student = route.params?.student? route.params.student
+    const student1 = route.params?.student1? route.params.student1
     
     : {
         id: null,
-        aluno: null,
-        responsavel: 'we',
+        student: null,
+        responsible: 'we',
     }
 
     const [ ,] = useResearch();
 
-    const [aluno, setAluno] = useState('')
-    const [responsavel, setResponsavel] = useState(student.responsavel)
+    const [student, setStudent] = useState('')
+    const [responsible, setResponsible] = useState(student1.responsible)
     const [loading, setLoading] = useState(false)
 
     const onLogoutPress = async () => {
@@ -49,12 +49,12 @@ const Administrador = ({route, navigation}) => {
 
     const onSearch = () => {
         const data ={
-            id: student.id,
-            student: aluno,
-            responsible: responsavel,
+            id: student1.id,
+            student: student,
+            responsible: responsible,
         }
         console.log('Administrador :: onSearch', data);
-        loadSearchStudent(data);
+        getStudent(data);
 
     }
 
@@ -65,13 +65,13 @@ const Administrador = ({route, navigation}) => {
 
               <View style={styles.formContainer}>
                <AdministradorCampoAluno 
-                 value={aluno}
-                 onChangeValue={setAluno}
+                 value={student}
+                 onChangeValue={setStudent}
                  />
 
                 <AdministradorCampoResponsavel
-                 value={responsavel}
-                 onChangeValue={setResponsavel}
+                 value={responsible}
+                 onChangeValue={setResponsible}
                  />
                  <ButtonPanel onNewStudentPress={() => navigation.navigate('Ate')}/>
 
@@ -85,9 +85,9 @@ const Administrador = ({route, navigation}) => {
                 <ActionFooter>
 
                  <ActionPrimaryButton 
-                    title={student.id ? 'Salvar' : 'Adicionar'}
+                    title={student1.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
-                     onSearch();
+                     getStudent(student1);
                     }}
                  />   
                 <ActionSecondaryButton 
