@@ -24,18 +24,18 @@ import Colors from '../../styles/Colors';
 
 const Administrador = ({route, navigation}) => {
 
-    const student1 = route.params?.student1? route.params.student1
-    
+    const student1 = route.params?.student1
+    ? route.params.student1
     : {
         id: null,
-        student: null,
-        responsible: 'we',
-    }
+        field1: null,
+        field2: null,
+    };
 
-    const [ ,] = useResearch();
+    const [ , addStuden,] = useResearch();
 
-    const [student, setStudent] = useState('')
-    const [responsible, setResponsible] = useState(student1.responsible)
+    const [field1, setField1] = useState();
+    const [field2, setField2] = useState();
     const [loading, setLoading] = useState(false)
 
     const onLogoutPress = async () => {
@@ -50,8 +50,8 @@ const Administrador = ({route, navigation}) => {
     const onSearch = () => {
         const data ={
             id: student1.id,
-            student: student,
-            responsible: responsible,
+            field1: field1,
+            field2: field2,
         }
         console.log('Administrador :: onSearch', data);
         getStudent(data);
@@ -65,13 +65,13 @@ const Administrador = ({route, navigation}) => {
 
               <View style={styles.formContainer}>
                <AdministradorCampoAluno 
-                 value={student}
-                 onChangeValue={setStudent}
+                 value={field1}
+                 onChangeValue={setField1}
                  />
 
                 <AdministradorCampoResponsavel
-                 value={responsible}
-                 onChangeValue={setResponsible}
+                 value={field2}
+                 onChangeValue={setField2}
                  />
                  <ButtonPanel onNewStudentPress={() => navigation.navigate('Ate')}/>
 
@@ -87,7 +87,9 @@ const Administrador = ({route, navigation}) => {
                  <ActionPrimaryButton 
                     title={student1.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
-                     getStudent(student1);
+
+                        console.log('apbutton :: value: ', JSON.stringify(field2));
+                        addStuden(field2);
                     }}
                  />   
                 <ActionSecondaryButton 

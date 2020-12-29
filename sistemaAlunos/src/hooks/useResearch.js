@@ -1,21 +1,23 @@
 import {useEffect, useState, useCallback} from 'react';
 
 import {
-    getStudent,
+    addStuden,
     
 } from '../services/Students';
 
 const useRechearch = (student1) => {
+
+    console.log('useRechearch :: value: ', JSON.stringify(student1));
   
     const [seaStudent, setSeaStudent] = useState([]);
 
-    useEffect(
+   /* useEffect(
         useCallback(() => {
           
 
             const loadSearchStudent = async () => {
                 
-                const data = await getStudent(student1);
+                const data = await getStudents();
                 setSeaStudent(data);
 
             };
@@ -24,9 +26,9 @@ const useRechearch = (student1) => {
               
             }, []),
             
-    );
+    );*/
 
-    return [ seaStudent];
+    return [ seaStudent, addStuden];
 };
 
 export default useRechearch
