@@ -2,6 +2,7 @@ import {useEffect, useState, useCallback} from 'react';
 
 import {
     addStuden,
+    addStuden2,
     
 } from '../services/Students';
 
@@ -28,7 +29,7 @@ const useRechearch = (student1) => {
             
     );*/
 
-    return [ seaStudent, addStuden];
+    return [ seaStudent, addStuden, addStuden2,];
 };
 
 export default useRechearch
