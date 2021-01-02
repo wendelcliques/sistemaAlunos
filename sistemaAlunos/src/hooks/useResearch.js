@@ -3,6 +3,8 @@ import {useEffect, useState, useCallback} from 'react';
 import {
     addStuden,
     addStuden2,
+    addStuden3,
+    addStuden4,
     
 } from '../services/Students';
 
@@ -29,7 +31,7 @@ const useRechearch = (student1) => {
             
     );*/
 
-    return [ seaStudent, addStuden, addStuden2,];
+    return [ seaStudent, addStuden, addStuden2, addStuden3, addStuden4,];
 };
 
 export default useRechearch

@@ -120,7 +120,7 @@ export const addStuden = async (field2) => {
         .collection('students')
         .where('responsible.responsible1.name', '>=', controle)
         .orderBy('responsible.responsible1.name')
-        .startAt('uf8ff'+controle)
+        .startAt(controle)
         .endAt(controle+'uf8ff')
         .get();
     
@@ -144,7 +144,53 @@ export const addStuden = async (field2) => {
         .collection('students')
         .where('responsible.responsible2.name', '>=', controle)
         .orderBy('responsible.responsible2.name')
-        .startAt('uf8ff'+controle)
+        .startAt(controle)
+        .endAt(controle+'uf8ff')
+        .get();
+    
+    
+    let students = querySnapshot.docs.map(documentSnapshot => {
+        return {...documentSnapshot.data(), id: documentSnapshot.id};
+    });
+    console.log('searchStudent2 :: students: ', JSON.stringify(students));
+    return students;
+    };
+
+    export const addStuden3 = async (field2) => {
+
+    
+        let controle = field2
+        console.log('searchStudent :: value: ', JSON.stringify(controle));
+
+        let querySnapshot;
+        querySnapshot = await firestore()
+        .collection('students')
+        .where('responsible.responsible3.name', '>=', controle)
+        .orderBy('responsible.responsible3.name')
+        .startAt(controle)
+        .endAt(controle+'uf8ff')
+        .get();
+    
+    
+    let students = querySnapshot.docs.map(documentSnapshot => {
+        return {...documentSnapshot.data(), id: documentSnapshot.id};
+    });
+    console.log('searchStudent2 :: students: ', JSON.stringify(students));
+    return students;
+    };
+
+    export const addStuden4 = async (field2) => {
+
+    
+        let controle = field2
+        console.log('searchStudent :: value: ', JSON.stringify(controle));
+
+        let querySnapshot;
+        querySnapshot = await firestore()
+        .collection('students')
+        .where('responsible.responsible4.name', '>=', controle)
+        .orderBy('responsible.responsible4.name')
+        .startAt(controle)
         .endAt(controle+'uf8ff')
         .get();
     

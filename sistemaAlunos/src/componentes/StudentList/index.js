@@ -8,9 +8,14 @@ import StudentListItem from './StudentListItem'
 
 import useStudents from '../../hooks/useStudents'
 
-const StudentList = ({student}) => {
+import useResearch from '../../hooks/useResearch'
+
+
+
+const StudentList = ({addStuden}) => {
     const navigation = useNavigation();
-    const [students, responsible] = useStudents(student);
+    //const [students, responsible] = useStudents(student);
+    const [students, responsible] = useResearch(addStuden);
     return (
         <Container
         title="Lista de Alunos">
