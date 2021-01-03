@@ -12,10 +12,12 @@ import useResearch from '../../hooks/useResearch'
 
 
 
-const StudentList = ({addStuden}) => {
+const StudentList = ({student}) => {
     const navigation = useNavigation();
     //const [students, responsible] = useStudents(student);
-    const [students, responsible] = useResearch(addStuden);
+    
+    const [students, responsible] = useResearch(student);
+    console.log('StudentList :: value: ', JSON.stringify(students));
     return (
         <Container
         title="Lista de Alunos">

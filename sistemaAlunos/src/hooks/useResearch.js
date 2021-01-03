@@ -1,6 +1,7 @@
 import {useEffect, useState, useCallback} from 'react';
 
 import {
+    getStudents,
     addStuden,
     addStuden2,
     addStuden3,
@@ -8,30 +9,30 @@ import {
     
 } from '../services/Students';
 
-const useRechearch = (student1) => {
+const useRechearch = (studen) => {
 
-    console.log('useRechearch :: value: ', JSON.stringify(student1));
+    console.log('useRechearch :: value: ', JSON.stringify(studen));
   
-    const [seaStudent, setSeaStudent] = useState([]);
+    const [stud, setStud] = useState([]);
 
-   /* useEffect(
+    useEffect(
         useCallback(() => {
           
 
             const loadSearchStudent = async () => {
                 
-                const data = await getStudents();
-                setSeaStudent(data);
+                const data = await addStuden(studen);
+                setStud(data);
 
             };
 
             loadSearchStudent();
               
-            }, []),
+            }, [studen]),
             
-    );*/
+    );
 
-    return [ seaStudent, addStuden, addStuden2, addStuden3, addStuden4,];
+    return [ stud, addStuden2, addStuden3, addStuden4,];
 };
 
 export default useRechearch

@@ -25,8 +25,8 @@ import { addStuden3 } from '../../services/Students';
 
 const Administrador = ({route, navigation}) => {
 
-    const student1 = route.params?.student1
-    ? route.params.student1
+    const student1 = route.params?.student
+    ? route.params.student
     : {
         id: null,
         field1: null,
@@ -93,7 +93,7 @@ const Administrador = ({route, navigation}) => {
                     addStuden(field2);
                         addStuden2(field2);
                         addStuden3(field2);
-                        addStuden4(field2);
+                        //addStuden4(field2);
                     }}
                  />   
                 <ActionSecondaryButton 

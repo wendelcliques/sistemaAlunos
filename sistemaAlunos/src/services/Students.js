@@ -175,7 +175,7 @@ export const addStuden = async (field2) => {
     let students = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
-    console.log('searchStudent2 :: students: ', JSON.stringify(students));
+    console.log('searchStudent3 :: students: ', JSON.stringify(students));
     return students;
     };
 
@@ -198,7 +198,7 @@ export const addStuden = async (field2) => {
     let students = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
-    console.log('searchStudent2 :: students: ', JSON.stringify(students));
+    console.log('searchStudent4 :: students: ', JSON.stringify(students));
     return students;
     };
         
