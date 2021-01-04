@@ -109,7 +109,7 @@ export const deleteStudent = async student => {
     }
 };
 
-export const addStuden = async (field2) => {
+export const getStuden = async (field2) => {
 
     
         let controle = field2
@@ -118,22 +118,22 @@ export const addStuden = async (field2) => {
         let querySnapshot;
         querySnapshot = await firestore()
         .collection('students')
-        .where('responsible.responsible1.name', '>=', controle)
+        .where('responsible.responsible1.name', '>=', 'w')
         .orderBy('responsible.responsible1.name')
-        .startAt(controle)
-        .endAt(controle+'uf8ff')
+        .startAt('w')
+        .endAt('w'+'uf8ff')
         .get();
     
     
-    let students = querySnapshot.docs.map(documentSnapshot => {
+    let studen = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
-    console.log('searchStudent :: students: ', JSON.stringify(students));
-    return students;
+    console.log('searchStudent :: students: ', JSON.stringify(studen));
+    return studen;
     };
         
 
-    export const addStuden2 = async (field2) => {
+    export const getStuden2 = async (field2) => {
 
     
         let controle = field2
@@ -149,14 +149,14 @@ export const addStuden = async (field2) => {
         .get();
     
     
-    let students = querySnapshot.docs.map(documentSnapshot => {
+    let studen2 = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
     console.log('searchStudent2 :: students: ', JSON.stringify(students));
-    return students;
+    return studen2;
     };
 
-    export const addStuden3 = async (field2) => {
+    export const getStuden3 = async (field2) => {
 
     
         let controle = field2
@@ -172,14 +172,14 @@ export const addStuden = async (field2) => {
         .get();
     
     
-    let students = querySnapshot.docs.map(documentSnapshot => {
+    let studen3 = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
     console.log('searchStudent3 :: students: ', JSON.stringify(students));
-    return students;
+    return studen3;
     };
 
-    export const addStuden4 = async (field2) => {
+    export const getStuden4 = async (field2) => {
 
     
         let controle = field2
@@ -195,11 +195,11 @@ export const addStuden = async (field2) => {
         .get();
     
     
-    let students = querySnapshot.docs.map(documentSnapshot => {
+    let studen4 = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
     console.log('searchStudent4 :: students: ', JSON.stringify(students));
-    return students;
+    return studen4;
     };
         
 
