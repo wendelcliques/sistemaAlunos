@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import { FlatList } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
@@ -15,8 +15,10 @@ import useResearch from '../../hooks/useResearch'
 const StudentList = ({student}) => {
     const navigation = useNavigation();
     //const [students, responsible] = useStudents(student);
+
     
-    const [students, responsible] = useResearch(student);
+    
+    const [students] = useResearch(student);
     console.log('StudentList :: value: ', JSON.stringify(students));
     return (
         <Container

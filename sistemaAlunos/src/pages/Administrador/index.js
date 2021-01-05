@@ -37,7 +37,8 @@ const Administrador = ({route, navigation}) => {
 
     const [field1, setField1] = useState();
     const [field2, setField2] = useState();
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [controle, setControle] = useState();
 
     const onLogoutPress = async () => {
         await cleanUserAuth();
@@ -57,6 +58,11 @@ const Administrador = ({route, navigation}) => {
         console.log('Administrador :: onSearch', data);
         getStudent(data);
 
+    }
+
+    const onControle = () => {
+        setControle = 1,
+        setControle = 0,
     }
 
     return (
@@ -90,6 +96,8 @@ const Administrador = ({route, navigation}) => {
                     onPress={() => {
 
                         console.log('apbutton :: value: ', JSON.stringify(field2));
+
+
                     getStuden(field2);
                         getStuden2(field2);
                         getStuden3(field2);

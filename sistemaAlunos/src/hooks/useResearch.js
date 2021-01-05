@@ -1,7 +1,7 @@
 import {useEffect, useState, useCallback} from 'react';
 
 import {
-    getStudents,
+    //getStudents,
     getStuden,
     getStuden2,
     getStuden3,
@@ -11,8 +11,8 @@ import {
 
 const useRechearch = () => {
 
-    console.log('useRechearch :: value: ', JSON.stringify());
-    const [students, setStudents] = useState();
+   
+   // const [students, setStudents] = useState();
     const [studen, setStuden] = useState();
     const [studen2, setStuden2] = useState();
     const [studen3, setStuden3] = useState();
@@ -54,7 +54,7 @@ const useRechearch = () => {
                 setStuden4(data);
 
             };
-            loadStudents();
+           // loadStudents();
             loadStuden();
             loadStuden2();
             loadStuden3();
@@ -63,8 +63,9 @@ const useRechearch = () => {
             }, []),
             
     );
-
-    return [ students, studen, studen2, studen3, studen4,];
+    console.log('useRechearch :: value: ', JSON.stringify(studen4));
+    return [ , studen, studen2, studen3, studen4,];
+    
 };
 
 export default useRechearch;
