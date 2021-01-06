@@ -109,7 +109,7 @@ export const deleteStudent = async student => {
     }
 };
 
-export const getStuden = async (field2='we') => {
+export const getStuden = async (field2='m') => {
 
     
         let controle = field2
@@ -118,10 +118,10 @@ export const getStuden = async (field2='we') => {
         let querySnapshot;
         querySnapshot = await firestore()
         .collection('students')
-        .where('responsible.responsible1.name', '>=', 'w')
+        .where('responsible.responsible1.name', '>=', controle)
         .orderBy('responsible.responsible1.name')
-        .startAt('w')
-        .endAt('w'+'uf8ff')
+        .startAt(controle)
+        .endAt(controle+'uf8ff')
         .get();
     
     
@@ -133,7 +133,7 @@ export const getStuden = async (field2='we') => {
     };
         
 
-    export const getStuden2 = async (field2='we') => {
+    export const getStuden2 = async (field2='m') => {
 
     
         let controle = field2
@@ -156,7 +156,7 @@ export const getStuden = async (field2='we') => {
     return studen2;
     };
 
-    export const getStuden3 = async (field2='we') => {
+    export const getStuden3 = async (field2='m') => {
 
     
         let controle = field2
@@ -179,7 +179,7 @@ export const getStuden = async (field2='we') => {
     return studen3;
     };
 
-    export const getStuden4 = async (field2='we') => {
+    export const getStuden4 = async (field2='m') => {
 
     
         let controle = field2

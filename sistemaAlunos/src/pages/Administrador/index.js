@@ -61,8 +61,9 @@ const Administrador = ({route, navigation}) => {
     }
 
     const onControle = () => {
-        setControle = 1,
-        setControle = 0,
+        setControle = 1;
+        setControle = 0;
+
     }
 
     return (
