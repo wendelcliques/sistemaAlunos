@@ -18,11 +18,15 @@ const StudentList = ({student}) => {
 
     
     
-    const [studen, studen2, studen3, studen4] = useResearch();
+    const [studen, 
+       // studen2, 
+       // studen3, 
+       // studen4
+    ] = useResearch();
 
    
 
-    console.log('StudentList :: value: ', JSON.stringify(studen));
+    console.log('StudentList :: value -teste list: ', JSON.stringify(studen));
 
     console.log('StudentList2 :: value: ', JSON.stringify(studen2));
 
@@ -36,7 +40,7 @@ const StudentList = ({student}) => {
         title="Lista de Alunos">
 
             <FlatList
-            data={studen4}
+            data={studen}
           
             keyExtractor={item => item.id}
             renderItem={({item, index}) => (

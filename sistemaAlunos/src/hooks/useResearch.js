@@ -3,9 +3,9 @@ import {useEffect, useState, useCallback} from 'react';
 import {
     //getStudents,
     getStuden,
-    getStuden2,
-    getStuden3,
-    getStuden4,
+   // getStuden2,
+   // getStuden3,
+   // getStuden4,
     
 } from '../services/Students';
 
@@ -20,12 +20,12 @@ const useRechearch = () => {
 
     useEffect(
         useCallback(() => {
-            const loadStudents = async () => {
+           /* const loadStudents = async () => {
                 
                 const data = await getStudents();
                 setStudents(data);
 
-            };
+            };*/
 
             const loadStuden = async () => {
                 
@@ -34,14 +34,14 @@ const useRechearch = () => {
 
             };
 
-            const loadStuden2 = async () => {
+           /*const loadStuden2 = async () => {
                 
                 const data = await getStuden2();
                 setStuden2(data);
 
             };
 
-            const loadStuden3 = async () => {
+           /* const loadStuden3 = async () => {
                 
                 const data = await getStuden3();
                 setStuden3(data);
@@ -53,18 +53,25 @@ const useRechearch = () => {
                 const data = await getStuden4();
                 setStuden4(data);
 
-            };
+            };*/
            // loadStudents();
             loadStuden();
-            loadStuden2();
-            loadStuden3();
-            loadStuden4();
+            //loadStuden2();
+            //loadStuden3();
+           // loadStuden4();
               
             }, []),
             
     );
+
+    console.log('useRechearch :: value:  ', JSON.stringify(studen));
+
+    console.log('useRechearch :: value: ', JSON.stringify(studen2));
+
+    console.log('useRechearch :: value: ', JSON.stringify(studen3));
+
     console.log('useRechearch :: value: ', JSON.stringify(studen4));
-    return [ , studen, studen2, studen3, studen4,];
+    return [studen, studen2, studen3, studen4,];
     
 };
 

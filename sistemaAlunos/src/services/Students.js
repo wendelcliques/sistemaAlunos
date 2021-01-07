@@ -109,7 +109,7 @@ export const deleteStudent = async student => {
     }
 };
 
-export const getStuden = async (field2='m') => {
+export const getStuden = async (field2='w') => {
 
     
         let controle = field2
@@ -128,12 +128,31 @@ export const getStuden = async (field2='m') => {
     let studen = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
-    console.log('searchStudent :: students: ', JSON.stringify(studen));
-    return studen;
+
+    let querySnapshot2;
+
+    querySnapshot2 = await firestore()
+    .collection('students')
+    .where('responsible.responsible4.name', '>=', controle)
+    .orderBy('responsible.responsible4.name')
+    .startAt(controle)
+    .endAt(controle+'uf8ff')
+    .get();
+
+
+    let studen2 = querySnapshot2.docs.map(documentSnapshot => {
+        return {...documentSnapshot.data(), id: documentSnapshot.id};
+    });
+    
+
+
+
+    console.log('searchStudent :: students - teste: ', JSON.stringify(studen && studen2));
+    return studen+studen2;
     };
         
 
-    export const getStuden2 = async (field2='m') => {
+  /*  export const getStuden2 = async (field2='r') => {
 
     
         let controle = field2
@@ -156,7 +175,7 @@ export const getStuden = async (field2='m') => {
     return studen2;
     };
 
-    export const getStuden3 = async (field2='m') => {
+    export const getStuden3 = async (field2='r') => {
 
     
         let controle = field2
@@ -179,7 +198,7 @@ export const getStuden = async (field2='m') => {
     return studen3;
     };
 
-    export const getStuden4 = async (field2='m') => {
+    export const getStuden4 = async (field2='r') => {
 
     
         let controle = field2
