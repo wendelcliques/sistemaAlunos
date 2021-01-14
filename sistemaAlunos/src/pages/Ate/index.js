@@ -26,6 +26,7 @@ import useStudents from '../../hooks/useStudents';
 import Colors from '../../styles/Colors';
 
 const Ate = ({route, navigation}) => {
+    
     const student = route.params?.student? route.params.student : {
         id: null,
         //entryAt: new Date(),
@@ -41,6 +42,7 @@ const Ate = ({route, navigation}) => {
         responsible: {
             responsible1: {
                 name: null,
+
             },
             responsible2: {
                 name: null,
@@ -99,6 +101,7 @@ const Ate = ({route, navigation}) => {
             responsible: {
                 responsible1: {
                     name: responsavel1,
+                    status: ,
                 },
                 responsible2: {
                     name: responsavel2,
