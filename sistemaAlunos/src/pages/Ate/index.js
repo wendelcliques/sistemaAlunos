@@ -59,6 +59,10 @@ const Ate = ({route, navigation}) => {
         },
     }
 
+    const responsible = {
+        
+    }
+
     const isEdit = route.params?.isEdit ? route.params.isEdit : false;
 
     const [getStudents, addStudent, updateStudent, deleteStudent] = useStudents();
