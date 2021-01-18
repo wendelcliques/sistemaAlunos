@@ -18,7 +18,7 @@ const StudentList = ({student}) => {
 
     
     
-    const [studen, 
+    const [addStuden, 
        // studen2, 
        // studen3, 
        // studen4
@@ -26,13 +26,13 @@ const StudentList = ({student}) => {
 
    
 
-    console.log('StudentList :: value -teste list: ', JSON.stringify(studen));
+    console.log('StudentList :: value -teste list: ', JSON.stringify(addStuden));
 
-    console.log('StudentList2 :: value: ', JSON.stringify(studen2));
+   // console.log('StudentList2 :: value: ', JSON.stringify(studen2));
 
-    console.log('StudentList3 :: value: ', JSON.stringify(studen3));
+   // console.log('StudentList3 :: value: ', JSON.stringify(studen3));
 
-    console.log('StudentList4 :: value: ', JSON.stringify(studen4));
+    //console.log('StudentList4 :: value: ', JSON.stringify(studen4));
 
  
     return (
@@ -40,7 +40,7 @@ const StudentList = ({student}) => {
         title="Lista de Alunos">
 
             <FlatList
-            data={studen}
+            data={addStuden}
           
             keyExtractor={item => item.id}
             renderItem={({item, index}) => (

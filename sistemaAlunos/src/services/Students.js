@@ -109,46 +109,94 @@ export const deleteStudent = async student => {
     }
 };
 
-export const getStuden = async (field2='w') => {
+export const addStuden = async (field2) => {
 
     
         let controle = field2
         console.log('searchStudent :: value: ', JSON.stringify(controle));
 
-        let querySnapshot;
-        querySnapshot = await firestore()
+         //querySnapshot = await firestore()
+        let lodash = require("lodash");
+        
+
+        const isResponsible1 = await firestore()
         .collection('students')
         .where('responsible.responsible1.name', '>=', controle)
         .orderBy('responsible.responsible1.name')
         .startAt(controle)
         .endAt(controle+'uf8ff')
         .get();
+
+        const isResponsible2 = await firestore()
+        .collection('students')
+        .where('responsible.responsible2.name', '>=', controle)
+        .orderBy('responsible.responsible2.name')
+        .startAt(controle)
+        .endAt(controle+'uf8ff')
+        .get();
+
+
+        const isResponsible3 = await firestore()
+        .collection('students')
+        .where('responsible.responsible3.name', '>=', controle)
+        .orderBy('responsible.responsible3.name')
+        .startAt(controle)
+        .endAt(controle+'uf8ff')
+        .get();
+
+
+        //querySnapshot2 = await firestore()
+        const isResponsible4 = await firestore()
+        .collection('students')
+        .where('responsible.responsible4.name', '>=', controle)
+        .orderBy('responsible.responsible4.name')
+        .startAt(controle)
+        .endAt(controle+'uf8ff')
+        .get();
+
+
+        let querySnapshot;
+        let querySnapshot2;
+        let querySnapshot3;
+        let querySnapshot4;
+
+        [querySnapshot, querySnapshot2, querySnapshot3, querySnapshot4] = await Promise.all([
+            isResponsible1,
+            isResponsible2,
+            isResponsible3,
+            isResponsible4
+        ]);
+
+       
+
+        
     
     
     let studen = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
 
-    let querySnapshot2;
-
-    querySnapshot2 = await firestore()
-    .collection('students')
-    .where('responsible.responsible4.name', '>=', controle)
-    .orderBy('responsible.responsible4.name')
-    .startAt(controle)
-    .endAt(controle+'uf8ff')
-    .get();
-
-
     let studen2 = querySnapshot2.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
     });
+
+    let studen3 = querySnapshot3.docs.map(documentSnapshot => {
+        return {...documentSnapshot.data(), id: documentSnapshot.id};
+    });
+
+
+    let studen4 = querySnapshot4.docs.map(documentSnapshot => {
+        return {...documentSnapshot.data(), id: documentSnapshot.id};
+    });
     
+   // const responsibleArray = studen.concat(studen2).concat(studen3).concat(studen4);
+
+   const responsibleArray = lodash.concat(studen, studen2, studen3, studen4);
 
 
-
-    console.log('searchStudent :: students - teste: ', JSON.stringify(studen && studen2));
-    return studen+studen2;
+    console.log('searchStudent :: students - teste: ', JSON.stringify(responsibleArray));
+    //return responsibleArray;
+    return lodash.uniqWith(responsibleArray, lodash.isEqual);
     };
         
 

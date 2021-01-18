@@ -98,11 +98,11 @@ const Administrador = ({route, navigation}) => {
 
                         console.log('apbutton :: value: ', JSON.stringify(field2));
 
-
-                    getStuden(field2);
-                        getStuden2(field2);
-                        getStuden3(field2);
-                        getStuden4(field2);
+                        addStuden(field2);
+                    //getStuden(field2);
+                       // getStuden2(field2);
+                       // getStuden3(field2);
+                      //  getStuden4(field2);
                     }}
                  />   
                 <ActionSecondaryButton 
