@@ -18,7 +18,7 @@ import {cleanUserAuth} from '../../services/Auth';
 import useResearch from '../../hooks/useResearch';
 
 import Colors from '../../styles/Colors';
-import { addStuden3 } from '../../services/Students';
+import { getStuden } from '../../services/Students';
 
 
 
@@ -33,10 +33,10 @@ const Administrador = ({route, navigation}) => {
         field2: null,
     };
 
-    const [ , addStuden, addStuden2, addStuden3, addStuden4,] = useResearch();
+    const [ studen , addStuden, addStuden2, addStuden3, addStuden4,] = useResearch();
 
     const [field1, setField1] = useState();
-    const [field2, setField2] = useState();
+    const [field2, setField2] = useState('w');
     const [loading, setLoading] = useState(false);
     const [controle, setControle] = useState();
 
@@ -98,8 +98,11 @@ const Administrador = ({route, navigation}) => {
 
                         console.log('apbutton :: value: ', JSON.stringify(field2));
 
-                        addStuden(field2);
+
+                        
+                        //addStuden(field2);
                     //getStuden(field2);
+                    navigation.navigate('Coordenador');
                        // getStuden2(field2);
                        // getStuden3(field2);
                       //  getStuden4(field2);

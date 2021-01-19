@@ -7,12 +7,12 @@ import ActionFooter, {
 
 } from '../../componentes/Core/ActionFooter';
 
-import StudentList from '../../componentes/StudentList';
+import ResultList from '../../componentes/ResultList';
 
 const Coordenador = () => {
     return (
         <View>
-            <Text>Coordenador</Text>
+            <ResultList />
         </View>
     )
 }

@@ -14,19 +14,19 @@ import useResearch from '../../hooks/useResearch'
 
 const StudentList = ({student}) => {
     const navigation = useNavigation();
-    //const [students, responsible] = useStudents(student);
+    const [students, responsible] = useStudents(student);
 
     
     
-    const [addStuden, 
+   // const [studen, 
        // studen2, 
        // studen3, 
        // studen4
-    ] = useResearch();
+   // ] = useResearch();
 
-   
+  //  console.log('StudentList :: value -teste list: ', JSON.stringify(studen));
 
-    console.log('StudentList :: value -teste list: ', JSON.stringify(addStuden));
+    
 
    // console.log('StudentList2 :: value: ', JSON.stringify(studen2));
 
@@ -39,8 +39,13 @@ const StudentList = ({student}) => {
         <Container
         title="Lista de Alunos">
 
+                        
+
+
             <FlatList
-            data={addStuden}
+
+            data={students}
+
           
             keyExtractor={item => item.id}
             renderItem={({item, index}) => (

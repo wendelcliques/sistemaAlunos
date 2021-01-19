@@ -109,7 +109,7 @@ export const deleteStudent = async student => {
     }
 };
 
-export const addStuden = async (field2) => {
+export const getStuden = async (field2) => {
 
     
         let controle = field2

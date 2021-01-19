@@ -35,26 +35,8 @@ const useRechearch = (field2) => {
 
             };
 
-           /*const loadStuden2 = async () => {
-                
-                const data = await getStuden2();
-                setStuden2(data);
-
-            };
-
-           /* const loadStuden3 = async () => {
-                
-                const data = await getStuden3();
-                setStuden3(data);
-
-            };
-
-            const loadStuden4 = async () => {
-                
-                const data = await getStuden4();
-                setStuden4(data);
-
-            };*/
+           
+           
            // loadStudents();
             loadStuden();
             //loadStuden2();
@@ -65,14 +47,14 @@ const useRechearch = (field2) => {
             
     );
 
-    console.log('useRechearch :: value:  ', JSON.stringify(studen));
+    console.log('useRechearch :: value: addStuden ', JSON.stringify(studen));
 
-    console.log('useRechearch :: value: ', JSON.stringify(studen2));
+    //console.log('useRechearch :: value: ', JSON.stringify(studen2));
 
-    console.log('useRechearch :: value: ', JSON.stringify(studen3));
+    //console.log('useRechearch :: value: ', JSON.stringify(studen3));
 
-    console.log('useRechearch :: value: ', JSON.stringify(studen4));
-    return [studen, addStuden, studen2, studen3, studen4,];
+    //console.log('useRechearch :: value: ', JSON.stringify(studen4));
+    return [studen, addStuden, studen2, studen3, studen4, ];
     
 };
 
