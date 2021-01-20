@@ -56,7 +56,7 @@ const Administrador = ({route, navigation}) => {
             field2: field2,
         }
         console.log('Administrador :: onSearch', data);
-        getStudent(data);
+        getStuden(data);
 
     }
 
@@ -99,7 +99,7 @@ const Administrador = ({route, navigation}) => {
                         console.log('apbutton :: value: ', JSON.stringify(field2));
 
 
-                        
+                        onSearch();
                         //addStuden(field2);
                     //getStuden(field2);
                     navigation.navigate('Coordenador');
