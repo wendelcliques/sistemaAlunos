@@ -49,14 +49,17 @@ const Administrador = ({route, navigation}) => {
         });
     }
 
-    const onSearch = () => {
+    const onSearch = async () => {
         const data ={
             id: student1.id,
             field1: field1,
             field2: field2,
         }
-        console.log('Administrador :: onSearch', data);
-        getStuden(data);
+
+    
+
+       console.log('Administrador :: onSearch', data);
+       await getStuden(data);
 
     }
 
