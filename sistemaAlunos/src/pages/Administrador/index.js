@@ -33,7 +33,7 @@ const Administrador = ({route, navigation}) => {
         field2: null,
     };
 
-    const [ studen , addStuden, addStuden2, addStuden3, addStuden4,] = useResearch();
+    const [ studen ] = useResearch();
 
     const [field1, setField1] = useState();
     const [field2, setField2] = useState('w');
@@ -50,16 +50,20 @@ const Administrador = ({route, navigation}) => {
     }
 
     const onSearch = async () => {
-        const data ={
-            id: student1.id,
-            field1: field1,
-            field2: field2,
-        }
+       // const data ={
+           // id: student1.id,
+           // field1: field1,
+           // field2: field2,
+        ///}
+
+        
 
     
 
-       console.log('Administrador :: onSearch', data);
-       await getStuden(data);
+       console.log('Administrador :: onSearch', field2);
+       await getStuden(field2);
+
+       navigation.navigate('Coordenador');
 
     }
 
@@ -103,12 +107,7 @@ const Administrador = ({route, navigation}) => {
 
 
                         onSearch();
-                        //addStuden(field2);
-                    //getStuden(field2);
-                    navigation.navigate('Coordenador');
-                       // getStuden2(field2);
-                       // getStuden3(field2);
-                      //  getStuden4(field2);
+                       
                     }}
                  />   
                 <ActionSecondaryButton 

@@ -6,9 +6,9 @@ import {
     
 } from '../services/Students';
 
-const useRechearch = (field2) => {
+const useResearch = (field2) => {
 
-    console.log('useRechearch :: field2:  ', JSON.stringify(field2));
+   
    // const [students, setStudents] = useState();
     const [studen, setStuden] = useState();
     
@@ -31,7 +31,7 @@ const useRechearch = (field2) => {
             
               
             }, [field2]),
-            
+            console.log('useRechearch :: field2: parametro do useeffect ', JSON.stringify(field2)),
     );
 
     console.log('useRechearch :: value: addStuden ', JSON.stringify(studen));
@@ -41,5 +41,5 @@ const useRechearch = (field2) => {
     
 };
 
-export default useRechearch;
+export default useResearch;
 

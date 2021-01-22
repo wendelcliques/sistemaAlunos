@@ -8,7 +8,7 @@ import StudentListItem from './StudentListItem'
 
 import useStudents from '../../hooks/useStudents'
 
-import useResearch from '../../hooks/useResearch'
+
 
 
 
@@ -18,22 +18,7 @@ const StudentList = ({student}) => {
 
     
     
-   // const [studen, 
-       // studen2, 
-       // studen3, 
-       // studen4
-   // ] = useResearch();
-
-  //  console.log('StudentList :: value -teste list: ', JSON.stringify(studen));
-
-    
-
-   // console.log('StudentList2 :: value: ', JSON.stringify(studen2));
-
-   // console.log('StudentList3 :: value: ', JSON.stringify(studen3));
-
-    //console.log('StudentList4 :: value: ', JSON.stringify(studen4));
-
+  
  
     return (
         <Container

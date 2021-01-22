@@ -14,25 +14,15 @@ import useResearch from '../../hooks/useResearch'
 
 const ResultList = ({student}) => {
     const navigation = useNavigation();
-    //const [students, responsible] = useStudents(student);
+    
 
     
     
     const [studen, 
-       // studen2, 
-       // studen3, 
-       // studen4
-    ] = useResearch();
+       
+    ] = useResearch(student);
 
-  //  console.log('StudentList :: value -teste list: ', JSON.stringify(studen));
-
-    
-
-   // console.log('StudentList2 :: value: ', JSON.stringify(studen2));
-
-   // console.log('StudentList3 :: value: ', JSON.stringify(studen3));
-
-    //console.log('StudentList4 :: value: ', JSON.stringify(studen4));
+  
 
  
     return (

@@ -109,55 +109,55 @@ export const deleteStudent = async student => {
     }
 };
 
-export const getStuden = async (value  ) => {
+export const getStuden = async (field2  ) => {
 
-    console.log('searchStudent :: value: antes do if', JSON.stringify(value));
+    console.log('searchStudent :: value: antes do if', JSON.stringify(field2));
 
-        if (value != undefined) {
-            field2 = '';
+        if (field2 != undefined) {
+           // field2 = '';
 
-            console.log('searchStudent :: value: primeiro if', JSON.stringify(value));
+            console.log('searchStudent :: value: if não indefinido', JSON.stringify(field2));
 
-            let controle1 = value
+            let controle = field2
 
-            console.log('searchStudent :: value: controle', JSON.stringify(controle1));
+            console.log('searchStudent :: value: controle não indefinido', JSON.stringify(controle));
 
             let lodash = require("lodash");
         
 
             const isResponsible1 = await firestore()
             .collection('students')
-            .where('responsible.responsible1.name', '>=', controle1)
+            .where('responsible.responsible1.name', '>=', controle)
             .orderBy('responsible.responsible1.name')
-            .startAt(controle1)
-            .endAt(controle1+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
     
             const isResponsible2 = await firestore()
             .collection('students')
-            .where('responsible.responsible2.name', '>=', controle1)
+            .where('responsible.responsible2.name', '>=', controle)
             .orderBy('responsible.responsible2.name')
-            .startAt(controle1)
-            .endAt(controle1+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
     
     
             const isResponsible3 = await firestore()
             .collection('students')
-            .where('responsible.responsible3.name', '>=', controle1)
+            .where('responsible.responsible3.name', '>=', controle)
             .orderBy('responsible.responsible3.name')
-            .startAt(controle1)
-            .endAt(controle1+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
     
     
             //querySnapshot2 = await firestore()
             const isResponsible4 = await firestore()
             .collection('students')
-            .where('responsible.responsible4.name', '>=', controle1)
+            .where('responsible.responsible4.name', '>=', controle)
             .orderBy('responsible.responsible4.name')
-            .startAt(controle1)
-            .endAt(controle1+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
 
             let querySnapshot;
@@ -196,15 +196,17 @@ export const getStuden = async (value  ) => {
    const responsibleArray = lodash.concat(studen, studen2, studen3, studen4);
 
 
-    console.log('searchStudent :: students - teste: ', JSON.stringify(responsibleArray));
+    console.log('searchStudent :: students pesquisa concatenada if não indefinido ', JSON.stringify(responsibleArray));
     //return responsibleArray;
     return lodash.uniqWith(responsibleArray, lodash.isEqual);
 
     
         } else {
+
+         field2 = '';
     
-        let controle = value
-        console.log('searchStudent :: value: ', JSON.stringify(controle));
+        let controle = field2
+        console.log('searchStudent :: value: if indefinido', JSON.stringify(controle));
 
          //querySnapshot = await firestore()
         let lodash = require("lodash");
@@ -288,7 +290,7 @@ export const getStuden = async (value  ) => {
    const responsibleArray = lodash.concat(studen, studen2, studen3, studen4);
 
 
-    console.log('searchStudent :: students - teste: ', JSON.stringify(responsibleArray));
+    console.log('searchStudent :: students pesquisa concatenada if indefinido ', JSON.stringify(responsibleArray));
     //return responsibleArray;
     return lodash.uniqWith(responsibleArray, lodash.isEqual);
 
