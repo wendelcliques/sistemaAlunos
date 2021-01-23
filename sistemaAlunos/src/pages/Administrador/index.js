@@ -36,7 +36,7 @@ const Administrador = ({route, navigation}) => {
     const [ studen ] = useResearch();
 
     const [field1, setField1] = useState();
-    const [field2, setField2] = useState('w');
+    const [field2, setField2] = useState(student1.field2);
     const [loading, setLoading] = useState(false);
     const [controle, setControle] = useState();
 
@@ -62,9 +62,9 @@ const Administrador = ({route, navigation}) => {
 
        console.log('Administrador :: onSearch', field2);
        await getStuden(field2);
-
+       console.log('Administrador :: passei aqui', field2);
        navigation.navigate('Coordenador');
-
+      
     }
 
     const onControle = () => {

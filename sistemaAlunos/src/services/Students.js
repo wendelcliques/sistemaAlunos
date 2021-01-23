@@ -114,7 +114,7 @@ export const getStuden = async (field2  ) => {
     console.log('searchStudent :: value: antes do if', JSON.stringify(field2));
 
         if (field2 != undefined) {
-           // field2 = '';
+            field2 = 'w';
 
             console.log('searchStudent :: value: if não indefinido', JSON.stringify(field2));
 
@@ -203,7 +203,7 @@ export const getStuden = async (field2  ) => {
     
         } else {
 
-         field2 = '';
+         field2 = 'r';
     
         let controle = field2
         console.log('searchStudent :: value: if indefinido', JSON.stringify(controle));
