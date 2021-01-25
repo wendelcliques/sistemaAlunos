@@ -61,7 +61,7 @@ const Administrador = ({route, navigation}) => {
     
 
        console.log('Administrador :: onSearch', field2);
-       await getStuden(field2);
+      // await getStuden(field2);
        console.log('Administrador :: passei aqui', field2);
        navigation.navigate('Coordenador');
       

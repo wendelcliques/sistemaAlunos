@@ -25,6 +25,7 @@ const useStudents = (student) => {
         
                 loadStudents();
             }, [student]),
+            console.log('useStudent :: field2: parametro do useeffect ', JSON.stringify(student)),
             
     );
 
