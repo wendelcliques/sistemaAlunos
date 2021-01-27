@@ -25,7 +25,7 @@ import { getStuden } from '../../services/Students';
 
 const Administrador = ({route, navigation}) => {
 
-    const student1 = route.params?.student
+    const student = route.params?.student
     ? route.params.student
     : {
         id: null,
@@ -33,10 +33,10 @@ const Administrador = ({route, navigation}) => {
         field2: null,
     };
 
-    const [ studen ] = useResearch();
+    const [ studen ] = useResearch(student);
 
     const [field1, setField1] = useState();
-    const [field2, setField2] = useState(student1.field2);
+    const [field2, setField2] = useState(student.field2);
     const [loading, setLoading] = useState(false);
     const [controle, setControle] = useState();
 
@@ -100,7 +100,7 @@ const Administrador = ({route, navigation}) => {
                 <ActionFooter>
 
                  <ActionPrimaryButton 
-                    title={student1.id ? 'Salvar' : 'Adicionar'}
+                    title={student.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
 
                         console.log('apbutton :: value: ', JSON.stringify(field2));

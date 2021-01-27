@@ -203,7 +203,7 @@ export const getStuden = async (field2  ) => {
     
         } else {
 
-         field2 = 'r';
+         field2 = '';
     
         let controle = field2
         console.log('searchStudent :: value: if indefinido', JSON.stringify(controle));
