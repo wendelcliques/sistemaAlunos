@@ -33,7 +33,7 @@ const Administrador = ({route, navigation}) => {
         field2: null,
     };
 
-    const [ studen ] = useResearch(student);
+    const [ studen ] = useResearch();
 
     const [field1, setField1] = useState();
     const [field2, setField2] = useState(student.field2);
@@ -49,19 +49,17 @@ const Administrador = ({route, navigation}) => {
         });
     }
 
-    const onSearch = async () => {
-       // const data ={
-           // id: student1.id,
-           // field1: field1,
-           // field2: field2,
-        ///}
+    const data ={
+        id: student.id,
+        field1: field1,
+        field2: field2,
+    }
 
-        
+   console.log('Administrador :: onSearch', field2);
+    getStuden(data);
 
-    
-
-       console.log('Administrador :: onSearch', field2);
-      // await getStuden(field2);
+    const onSearch = () => {
+       
        console.log('Administrador :: passei aqui', field2);
        navigation.navigate('Coordenador');
       
