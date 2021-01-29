@@ -115,57 +115,61 @@ export const getStuden = async (field2  ) => {
 
     console.log('searchStudent :: value: antes do if', JSON.stringify(field2));
 
-    data = toString(field2.field2);
+    data = JSON.stringify(field2);
 
-    console.log('searchStudent :: value: data ', JSON.stringify(data));
+    console.log('searchStudent :: value: data ', (data));
+
+   // let c2 = JSON.stringify(data);
 
    
 
         if (field2 != undefined) {
            // field2 = 'w';
 
-            console.log('searchStudent :: value: if não indefinido', JSON.stringify(field2));
+            console.log('searchStudent :: value: if não indefinido', (field2));
 
             let controle = data
 
-            console.log('searchStudent :: value: controle não indefinido', JSON.stringify(controle));
+            console.log('searchStudent :: value: controle não indefinido', (data));
 
             let lodash = require("lodash");
         
 
             const isResponsible1 = await firestore()
             .collection('students')
-            .where('responsible.responsible1.name', '>=', controle)
+            .where('responsible.responsible1.name', '>=', data)
             .orderBy('responsible.responsible1.name')
-            .startAt(controle)
-            .endAt(controle+'uf8ff')
+            .startAt(data)
+            .endAt(data+'uf8ff')
             .get();
+
+            console.log('searchStudent :: value: is responsible 1', JSON.stringify(isResponsible1));
     
             const isResponsible2 = await firestore()
             .collection('students')
-            .where('responsible.responsible2.name', '>=', controle)
+            .where('responsible.responsible2.name', '>=', data)
             .orderBy('responsible.responsible2.name')
-            .startAt(controle)
-            .endAt(controle+'uf8ff')
+            .startAt(data)
+            .endAt(data+'uf8ff')
             .get();
     
     
             const isResponsible3 = await firestore()
             .collection('students')
-            .where('responsible.responsible3.name', '>=', controle)
+            .where('responsible.responsible3.name', '>=', data)
             .orderBy('responsible.responsible3.name')
-            .startAt(controle)
-            .endAt(controle+'uf8ff')
+            .startAt(data)
+            .endAt(data+'uf8ff')
             .get();
     
     
             //querySnapshot2 = await firestore()
             const isResponsible4 = await firestore()
             .collection('students')
-            .where('responsible.responsible4.name', '>=', controle)
+            .where('responsible.responsible4.name', '>=', data)
             .orderBy('responsible.responsible4.name')
-            .startAt(controle)
-            .endAt(controle+'uf8ff')
+            .startAt(data)
+            .endAt(data+'uf8ff')
             .get();
 
             let querySnapshot;

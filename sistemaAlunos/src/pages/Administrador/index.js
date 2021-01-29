@@ -49,11 +49,13 @@ const Administrador = ({route, navigation}) => {
         });
     }
 
-    const data ={
+    const data = field2;
+    
+    /*{
         id: student.id,
         field1: field1,
         field2: field2,
-    }
+    }*/
 
    console.log('Administrador :: onSearch', field2);
     getStuden(data);
