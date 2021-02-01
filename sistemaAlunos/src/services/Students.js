@@ -111,13 +111,13 @@ export const deleteStudent = async student => {
 
 export const getStuden = async (field2  ) => {
 
-    let data;
+    
 
     console.log('searchStudent :: value: antes do if', JSON.stringify(field2));
-
-    //data = JSON.stringify(field2);
-
-    data = 'r';
+    let data;
+    data = field2.campo2;
+   // data = 'g';
+    
 
     console.log('searchStudent :: value: data ', (data));
 
@@ -126,11 +126,15 @@ export const getStuden = async (field2  ) => {
    
 
         if (field2 != undefined) {
+           
+
+            
+
            // field2 = 'w';
 
             console.log('searchStudent :: value: if não indefinido', (field2));
 
-            let controle = data
+           // let controle = data
 
             console.log('searchStudent :: value: controle não indefinido', (data));
 
@@ -217,7 +221,7 @@ export const getStuden = async (field2  ) => {
     
         } else {
 
-         field2 = '';
+         field2 = data;
     
         let controle = field2
         console.log('searchStudent :: value: if indefinido', JSON.stringify(controle));

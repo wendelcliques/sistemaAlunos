@@ -29,8 +29,8 @@ const Administrador = ({route, navigation}) => {
     ? route.params.student
     : {
         id: null,
-        field1: null,
-        field2: null,
+        field1: 'w',
+        field2: 'w',
     };
 
     const [ studen ] = useResearch();
@@ -49,13 +49,13 @@ const Administrador = ({route, navigation}) => {
         });
     }
 
-    const data = field2;
+    const data = 
     
-    /*{
+    {
         id: student.id,
-        field1: field1,
-        field2: field2,
-    }*/
+        campo1: field1,
+        campo2: field2,
+    }
 
    console.log('Administrador :: onSearch', field2);
     getStuden(data);
