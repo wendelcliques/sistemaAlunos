@@ -111,11 +111,13 @@ export const deleteStudent = async student => {
 
 export const getStuden = async (field2  ) => {
 
-    let data = {};
+    let data;
 
     console.log('searchStudent :: value: antes do if', JSON.stringify(field2));
 
-    data = JSON.stringify(field2);
+    //data = JSON.stringify(field2);
+
+    data = 'r';
 
     console.log('searchStudent :: value: data ', (data));
 
@@ -143,7 +145,7 @@ export const getStuden = async (field2  ) => {
             .endAt(data+'uf8ff')
             .get();
 
-            console.log('searchStudent :: value: is responsible 1', JSON.stringify(isResponsible1));
+          
     
             const isResponsible2 = await firestore()
             .collection('students')
