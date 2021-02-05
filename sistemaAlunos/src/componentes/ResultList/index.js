@@ -8,19 +8,30 @@ import ResultListItem from './ResultListItem'
 
 
 
-import useResearch from '../../hooks/useResearch'
+//import useResearch from '../../hooks/useResearch'
 
+import {getStuden} from '../../services/Students';
 
-
-const ResultList = ({student}) => {
+const ResultList = ({}) => {
     const navigation = useNavigation();
+
+    [results, setResults] = useState([]);
+
+    useEffect(() => {
+        async function loadResults() {
+            const data = await getStuden();
+            setResults(data);
+        }
+
+        loadResults();
+    }, []);
     
 
     
     
-    const [studen, 
+    //const [studen, 
        
-    ] = useResearch(student);
+    //] = useResearch();
 
   
 
@@ -34,7 +45,7 @@ const ResultList = ({student}) => {
 
             <FlatList
 
-            data={studen}
+            data={results}
 
           
             keyExtractor={item => item.id}
