@@ -12,14 +12,14 @@ import ResultListItem from './ResultListItem'
 
 import {getStuden} from '../../services/Students';
 
-const ResultList = ({}) => {
+const ResultList = ({campo1, campo2}) => {
     const navigation = useNavigation();
 
     [results, setResults] = useState([]);
 
     useEffect(() => {
         async function loadResults() {
-            const data = await getStuden();
+            const data = await getStuden(campo1, campo2);
             setResults(data);
         }
 

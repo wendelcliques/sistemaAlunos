@@ -49,21 +49,21 @@ const Administrador = ({route, navigation}) => {
         });
     }
 
-    const data = 
+   // const data = 
     
-    {
-        id: student.id,
-        campo1: field1,
-        campo2: field2,
-    }
+  //  {
+       // id: student.id,
+      //  campo1: field1,
+      //  campo2: field2,
+ //   }
 
-   console.log('Administrador :: onSearch', field2);
-    getStuden(data);
+  // console.log('Administrador :: onSearch', field2);
+   // getStuden();
 
     const onSearch = () => {
        
        console.log('Administrador :: passei aqui', field2);
-       navigation.navigate('Coordenador');
+       navigation.navigate('Coordenador', {campo1: field1, campo2: field2});
       
     }
 
