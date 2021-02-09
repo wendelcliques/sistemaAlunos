@@ -109,73 +109,86 @@ export const deleteStudent = async student => {
     }
 };
 
-export const getStuden = async (campo1, campo2  ) => {
+export const getStuden = async (campo1, campo2  ) => { 
 
-    
+    let controle = '';
 
     console.log('searchStudent :: value: antes do if', JSON.stringify(campo2));
-    let data;
-    data = campo2;
+   
    // data = 'g';
     
 
-    console.log('searchStudent :: value: data ', (data));
+    //console.log('searchStudent :: value: data ', (data));
 
    // let c2 = JSON.stringify(data);
+if (campo1 != undefined) {
+   
+     controle = campo1;
+     console.log('searchStudent :: passei aqui 1 ', (controle));
+} else if (campo2 != undefined) {
+     controle = campo2;
+     console.log('searchStudent :: passei aqui 2 ', (controle));
+} 
+
+//else {
+   // controle = '';
+   // console.log('searchStudent :: passei aqui 3 ', (controle));
+//}
+
 
    
 
-        if (campo2 != undefined) {
+       // if (campo2 != undefined) {
            
 
             
 
            // field2 = 'w';
 
-            console.log('searchStudent :: value: if não indefinido', (campo2));
+            console.log('searchStudent :: value: if não indefinido', (campo1));
 
            // let controle = data
 
-            console.log('searchStudent :: value: controle não indefinido', (data));
+           
 
             let lodash = require("lodash");
         
 
             const isResponsible1 = await firestore()
             .collection('students')
-            .where('responsible.responsible1.name', '>=', data)
+            .where('responsible.responsible1.name', '>=', controle)
             .orderBy('responsible.responsible1.name')
-            .startAt(data)
-            .endAt(data+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
 
           
     
             const isResponsible2 = await firestore()
             .collection('students')
-            .where('responsible.responsible2.name', '>=', data)
+            .where('responsible.responsible2.name', '>=', controle)
             .orderBy('responsible.responsible2.name')
-            .startAt(data)
-            .endAt(data+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
     
     
             const isResponsible3 = await firestore()
             .collection('students')
-            .where('responsible.responsible3.name', '>=', data)
+            .where('responsible.responsible3.name', '>=', controle)
             .orderBy('responsible.responsible3.name')
-            .startAt(data)
-            .endAt(data+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
     
     
             //querySnapshot2 = await firestore()
             const isResponsible4 = await firestore()
             .collection('students')
-            .where('responsible.responsible4.name', '>=', data)
+            .where('responsible.responsible4.name', '>=', controle)
             .orderBy('responsible.responsible4.name')
-            .startAt(data)
-            .endAt(data+'uf8ff')
+            .startAt(controle)
+            .endAt(controle+'uf8ff')
             .get();
 
             let querySnapshot;
@@ -218,8 +231,10 @@ export const getStuden = async (campo1, campo2  ) => {
     //return responsibleArray;
     return lodash.uniqWith(responsibleArray, lodash.isEqual);
 
+};
+
     
-        } else {
+      /*  } else {
 
          field2 = data;
     

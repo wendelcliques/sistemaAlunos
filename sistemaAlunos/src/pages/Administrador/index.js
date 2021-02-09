@@ -29,13 +29,13 @@ const Administrador = ({route, navigation}) => {
     ? route.params.student
     : {
         id: null,
-        field1: 'w',
-        field2: 'w',
+        field1: null,
+        field2: null,
     };
 
     const [ studen ] = useResearch();
 
-    const [field1, setField1] = useState();
+    const [field1, setField1] = useState(student.field1);
     const [field2, setField2] = useState(student.field2);
     const [loading, setLoading] = useState(false);
     const [controle, setControle] = useState();
@@ -63,7 +63,9 @@ const Administrador = ({route, navigation}) => {
     const onSearch = () => {
        
        console.log('Administrador :: passei aqui', field2);
-       navigation.navigate('Coordenador', {campo1: field1, campo2: field2});
+
+       navigation.navigate('Coordenador', 
+       {campo1: field1, campo2: field2});
       
     }
 
