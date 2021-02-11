@@ -109,6 +109,33 @@ export const deleteStudent = async student => {
     }
 };
 
+export const getResp = async (campo1) => {
+   
+  
+    if (campo1 != undefined) {
+   
+        controle = campo1;
+        console.log('searchStudent :: passei aqui 1 ', (controle));
+   }
+   
+   
+    let querySnapshot;
+    querySnapshot = await firestore()
+    .collection('students')
+    .where('name', '>=', controle)
+    .orderBy('name')
+    .startAt(controle)
+    .endAt(controle+'uf8ff')
+    .get();
+
+
+let resp = querySnapshot.docs.map(documentSnapshot => {
+    return {...documentSnapshot.data(), id: documentSnapshot.id};
+});
+
+return resp;
+};
+
 export const getStuden = async (campo1, campo2  ) => { 
 
     let controle = '';
@@ -125,25 +152,30 @@ if (campo1 != undefined) {
    
      controle = campo1;
      console.log('searchStudent :: passei aqui 1 ', (controle));
+
+
+    let querySnapshot;
+     querySnapshot = await firestore()
+     .collection('students')
+     .where('name', '>=', controle)
+     .orderBy('name')
+     .startAt(controle)
+     .endAt(controle+'uf8ff')
+     .get();
+ 
+ 
+ let resp = querySnapshot.docs.map(documentSnapshot => {
+     return {...documentSnapshot.data(), id: documentSnapshot.id};
+ });
+ 
+ return resp;
+
 } else if (campo2 != undefined) {
      controle = campo2;
      console.log('searchStudent :: passei aqui 2 ', (controle));
 } 
 
-//else {
-   // controle = '';
-   // console.log('searchStudent :: passei aqui 3 ', (controle));
-//}
 
-
-   
-
-       // if (campo2 != undefined) {
-           
-
-            
-
-           // field2 = 'w';
 
             console.log('searchStudent :: value: if não indefinido', (campo1));
 

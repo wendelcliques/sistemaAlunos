@@ -64,9 +64,14 @@ const Administrador = ({route, navigation}) => {
        
        console.log('Administrador :: passei aqui', field2);
 
-       navigation.navigate('Coordenador', 
+     
+
+        navigation.navigate('Coordenador', 
        {campo1: field1, campo2: field2});
+
       
+       
+     
     }
 
     const onControle = () => {
@@ -105,10 +110,18 @@ const Administrador = ({route, navigation}) => {
                     title={student.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
 
-                        console.log('apbutton :: value: ', JSON.stringify(field2));
+                        console.log('apbutton :: value: ', JSON.stringify(field1));
+
+                        if (field1 == undefined && field2 == undefined) {
+                            Alert.alert('Pesquiza em branco',
+                            'Por favor informe o nome do aluno ou do responsável',
+                            )
+                        } else {
+                            onSearch();
+                        }
 
 
-                        onSearch();
+                       
                        
                     }}
                  />   
