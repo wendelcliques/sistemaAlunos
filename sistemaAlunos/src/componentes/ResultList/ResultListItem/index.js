@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import Colors from '../../../styles/Colors'
 
 const ResultListItem = ({student, onStudentPress}) => {
+
+
     return (
 
         <TouchableOpacity
@@ -19,7 +21,7 @@ const ResultListItem = ({student, onStudentPress}) => {
             </View >
 
             <View style={styles.description}>
-                <Text style={styles.descriptionText} >{student.name}</Text>
+                <Text style={styles.descriptionText} >{student? student.name:'Nenhum resultado encontrado'}</Text>
                 <Text style={styles.descriptionText}>{student.responsible.responsible1.name}</Text>
                 <Text style={styles.descriptionText} >{student.responsible.responsible2.name}</Text>
                 <Text style={styles.descriptionText}>{student.responsible.responsible3.name}</Text>

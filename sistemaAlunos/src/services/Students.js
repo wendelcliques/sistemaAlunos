@@ -138,7 +138,7 @@ return resp;
 
 export const getStuden = async (campo1, campo2  ) => { 
 
-    let controle = '';
+    //let controle = '';
 
     console.log('searchStudent :: value: antes do if', JSON.stringify(campo2));
    
