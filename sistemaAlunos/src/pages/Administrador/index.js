@@ -75,8 +75,21 @@ const Administrador = ({route, navigation}) => {
     }
 
     const onControle = () => {
-        setControle = 1;
-        setControle = 0;
+        if (field1 == "" || field2 == "") {
+            setField1(0)
+            setField2(0)
+           
+
+            console.log('apbutton :: value: field1 controle', JSON.stringify(field1));
+                        console.log('apbutton :: value: field2 controle', JSON.stringify(field2));
+
+            Alert.alert('Pesquiza em branco',
+            'Por favor informe o nome do aluno ou do responsável',
+            )
+           } 
+           
+
+           
 
     }
 
@@ -110,15 +123,20 @@ const Administrador = ({route, navigation}) => {
                     title={student.id ? 'Salvar' : 'Adicionar'}
                     onPress={() => {
 
-                        console.log('apbutton :: value: ', JSON.stringify(field1));
+                        console.log('apbutton :: value: field1 ', JSON.stringify(field1));
+                        console.log('apbutton :: value: field2 ', JSON.stringify(field2));
 
-                        if ((field1 == undefined || field1 == '' ) && (field2 == undefined || field2 == '')) {
+                        onControle();
+
+                        if ((field1 == null ) && (field2 == null )) {
                             Alert.alert('Pesquiza em branco',
                             'Por favor informe o nome do aluno ou do responsável',
                             )
                         } else {
                             onSearch();
                         }
+
+                        
 
 
                        
